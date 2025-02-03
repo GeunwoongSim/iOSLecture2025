@@ -11,8 +11,11 @@
 ## Organization Identifier
 - Lecture : lecture 통일
 - Assignment : assign 통일
-## 과제링크
+## 퀴즈
+- [01.24 퀴즈](Assignment/DayAssign01_0124/DayAssign01_0124/main.swift)
 - [02.03 퀴즈](Assignment/DayAssign02_0203/DayAssign02_0203/main.swift)
+## 주간 과제
+- [1주차](Assignment/WeekAssign01/WeekAssign01/main.swift)
 # create a new repository on the command line
 ```swift
 echo "# iOSLecture2025" >> README.md
