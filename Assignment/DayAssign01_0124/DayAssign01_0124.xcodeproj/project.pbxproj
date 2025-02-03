@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5E75A3592D436D2B003380E7 /* CopyFiles */ = {
+		5E69D7AE2D50BF7A0027F892 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -19,19 +19,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5E75A35B2D436D2B003380E7 /* SwiftDay03Ex02 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftDay03Ex02; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E69D7B02D50BF7A0027F892 /* DayAssign01_0124 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DayAssign01_0124; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		5E75A35D2D436D2B003380E7 /* SwiftDay03Ex02 */ = {
+		5E69D7B22D50BF7A0027F892 /* DayAssign01_0124 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SwiftDay03Ex02;
+			path = DayAssign01_0124;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5E75A3582D436D2B003380E7 /* Frameworks */ = {
+		5E69D7AD2D50BF7A0027F892 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,18 +41,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5E75A3522D436D2B003380E7 = {
+		5E69D7A72D50BF7A0027F892 = {
 			isa = PBXGroup;
 			children = (
-				5E75A35D2D436D2B003380E7 /* SwiftDay03Ex02 */,
-				5E75A35C2D436D2B003380E7 /* Products */,
+				5E69D7B22D50BF7A0027F892 /* DayAssign01_0124 */,
+				5E69D7B12D50BF7A0027F892 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5E75A35C2D436D2B003380E7 /* Products */ = {
+		5E69D7B12D50BF7A0027F892 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5E75A35B2D436D2B003380E7 /* SwiftDay03Ex02 */,
+				5E69D7B02D50BF7A0027F892 /* DayAssign01_0124 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,64 +60,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5E75A35A2D436D2B003380E7 /* SwiftDay03Ex02 */ = {
+		5E69D7AF2D50BF7A0027F892 /* DayAssign01_0124 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E75A3622D436D2B003380E7 /* Build configuration list for PBXNativeTarget "SwiftDay03Ex02" */;
+			buildConfigurationList = 5E69D7B72D50BF7A0027F892 /* Build configuration list for PBXNativeTarget "DayAssign01_0124" */;
 			buildPhases = (
-				5E75A3572D436D2B003380E7 /* Sources */,
-				5E75A3582D436D2B003380E7 /* Frameworks */,
-				5E75A3592D436D2B003380E7 /* CopyFiles */,
+				5E69D7AC2D50BF7A0027F892 /* Sources */,
+				5E69D7AD2D50BF7A0027F892 /* Frameworks */,
+				5E69D7AE2D50BF7A0027F892 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5E75A35D2D436D2B003380E7 /* SwiftDay03Ex02 */,
+				5E69D7B22D50BF7A0027F892 /* DayAssign01_0124 */,
 			);
-			name = SwiftDay03Ex02;
+			name = DayAssign01_0124;
 			packageProductDependencies = (
 			);
-			productName = SwiftDay03Ex02;
-			productReference = 5E75A35B2D436D2B003380E7 /* SwiftDay03Ex02 */;
+			productName = DayAssign01_0124;
+			productReference = 5E69D7B02D50BF7A0027F892 /* DayAssign01_0124 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5E75A3532D436D2B003380E7 /* Project object */ = {
+		5E69D7A82D50BF7A0027F892 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					5E75A35A2D436D2B003380E7 = {
+					5E69D7AF2D50BF7A0027F892 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
-			buildConfigurationList = 5E75A3562D436D2B003380E7 /* Build configuration list for PBXProject "SwiftDay03Ex02" */;
+			buildConfigurationList = 5E69D7AB2D50BF7A0027F892 /* Build configuration list for PBXProject "DayAssign01_0124" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 5E75A3522D436D2B003380E7;
+			mainGroup = 5E69D7A72D50BF7A0027F892;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 5E75A35C2D436D2B003380E7 /* Products */;
+			productRefGroup = 5E69D7B12D50BF7A0027F892 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5E75A35A2D436D2B003380E7 /* SwiftDay03Ex02 */,
+				5E69D7AF2D50BF7A0027F892 /* DayAssign01_0124 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5E75A3572D436D2B003380E7 /* Sources */ = {
+		5E69D7AC2D50BF7A0027F892 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -127,7 +127,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		5E75A3602D436D2B003380E7 /* Debug */ = {
+		5E69D7B52D50BF7A0027F892 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -190,7 +190,7 @@
 			};
 			name = Debug;
 		};
-		5E75A3612D436D2B003380E7 /* Release */ = {
+		5E69D7B62D50BF7A0027F892 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -245,7 +245,7 @@
 			};
 			name = Release;
 		};
-		5E75A3632D436D2B003380E7 /* Debug */ = {
+		5E69D7B82D50BF7A0027F892 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -256,7 +256,7 @@
 			};
 			name = Debug;
 		};
-		5E75A3642D436D2B003380E7 /* Release */ = {
+		5E69D7B92D50BF7A0027F892 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -270,25 +270,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5E75A3562D436D2B003380E7 /* Build configuration list for PBXProject "SwiftDay03Ex02" */ = {
+		5E69D7AB2D50BF7A0027F892 /* Build configuration list for PBXProject "DayAssign01_0124" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5E75A3602D436D2B003380E7 /* Debug */,
-				5E75A3612D436D2B003380E7 /* Release */,
+				5E69D7B52D50BF7A0027F892 /* Debug */,
+				5E69D7B62D50BF7A0027F892 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5E75A3622D436D2B003380E7 /* Build configuration list for PBXNativeTarget "SwiftDay03Ex02" */ = {
+		5E69D7B72D50BF7A0027F892 /* Build configuration list for PBXNativeTarget "DayAssign01_0124" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5E75A3632D436D2B003380E7 /* Debug */,
-				5E75A3642D436D2B003380E7 /* Release */,
+				5E69D7B82D50BF7A0027F892 /* Debug */,
+				5E69D7B92D50BF7A0027F892 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5E75A3532D436D2B003380E7 /* Project object */;
+	rootObject = 5E69D7A82D50BF7A0027F892 /* Project object */;
 }

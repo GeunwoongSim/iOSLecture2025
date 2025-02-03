@@ -1,3 +1,18 @@
+# 커밋 참고 사항
+## 폴더
+1. lecture : 강의중 사용한 프로젝트 파일
+2. Assignment : 주간 과제 or 일일과제 or 퀴즈 프로젝트 파일
+
+## 프로젝트명
+-  LectureMMDDExNN (ex. Lecture0122Ex01) : lecture에 사용
+-  WeekAssignN (ex. WeekAssign01) : N번째 주간과제  
+-  DayAssignNN_MMDD (ex. DayAssign01_0124) : N번째 일일과제_과제날짜
+
+## Organization Identifier
+- Lecture : lecture 통일
+- Assignment : assign 통일
+## 과제링크
+
 # create a new repository on the command line
 ```swift
 echo "# iOSLecture2025" >> README.md

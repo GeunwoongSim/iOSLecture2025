@@ -149,7 +149,7 @@ print(total)
 //while i < 10 {
 //    print(num1, terminator: i == 9 ? "\n" : ", ")
 //    sum += num1
-//    
+//
 //    let next = num1 + num2
 //    num1 = num2
 //    num2 = next
