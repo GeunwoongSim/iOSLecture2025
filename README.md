@@ -12,7 +12,7 @@
 - Lecture : lecture 통일
 - Assignment : assign 통일
 ## 과제링크
-- [02.03 퀴즈](Assignment/DayAssign02_0203)
+- [02.03 퀴즈](Assignment/DayAssign02_0203/DayAssign02_0203/main.swift)
 # create a new repository on the command line
 ```swift
 echo "# iOSLecture2025" >> README.md
