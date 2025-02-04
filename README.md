@@ -14,6 +14,7 @@
 ## 퀴즈
 - [01.24 퀴즈](Assignment/DayAssign01_0124/DayAssign01_0124/main.swift)
 - [02.03 퀴즈](Assignment/DayAssign02_0203/DayAssign02_0203/main.swift)
+- [02.04 퀴즈](Assignment/DayAssign03_0204/DayAssign03_0204/main.swift)
 ## 주간 과제
 - [1주차](Assignment/WeekAssign01/WeekAssign01/main.swift)
 # create a new repository on the command line
