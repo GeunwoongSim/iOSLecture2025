@@ -2,7 +2,7 @@
 
 extension PhoneBook {
     func userInput() -> Int {
-        print("Chice: ", terminator: "")
+        print("Choice: ", terminator: "")
         guard let input: Int = Int(readLine() ?? ""), (input >= 1 && input <= 6) else {
             return 6
         }
