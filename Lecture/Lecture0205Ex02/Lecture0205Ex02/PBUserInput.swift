@@ -2,10 +2,13 @@
 
 extension PhoneBook {
     func userInput() -> Int {
-        print("Choice: ", terminator: "")
-        guard let input: Int = Int(readLine() ?? ""), (input >= 1 && input <= 6) else {
-            return 6
+        while true {
+            print("Choice: ", terminator: "")
+            guard let input: Int = Int(readLine() ?? ""), (input >= 1 && input <= self.menuItems.count) else { // 1~6 일때만 진행
+                print("잘못된 입력입니다.")
+                continue
+            }
+            return input
         }
-        return input
     }
 }
