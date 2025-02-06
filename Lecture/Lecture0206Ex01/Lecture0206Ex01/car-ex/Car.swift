@@ -18,4 +18,12 @@ class Car {
     func drive() {
         print("\(color) 자동차가 \(speed)km/h로 주행합니다.")
     }
+    
+}
+func carRun(){
+    let sonata = Car(color: "검정색", speed: 110)
+    let grandeur = Car(color: "하얀색", speed: 120)
+    
+    let carlist: [Car] = [sonata,grandeur]
+    let carlist2: [Car] = [Car(color: "보라색", speed: 90),Car(color: "파란색", speed: 130)]
 }
