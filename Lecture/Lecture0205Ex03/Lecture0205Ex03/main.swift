@@ -35,14 +35,16 @@ print(sortedArr)
 let numbers: [Int] = [4,5,3,1,2]
 print(numbers)
 func multi(num: Int) -> Int {
-    return num * 3
+    return num * 5
 }
-let newNumbers: [Int] = numbers.map(multi)
-print(newNumbers)
+let newNumbers1: [Int] = numbers.map(multi)
+let newNumbers2: [Int] = numbers.map({ (number: Int) -> Int in return number * 5 })
+print(newNumbers1)
 
 
 func compa(a: Int, b: Int) -> Bool{
     return a > b
 }
-let sortedArr = numbers.sorted(by: compa)
-print(sortedArr)
+let sortedArr1 = numbers.sorted(by: compa)
+let sortedArr2 = numbers.sorted{ $0 > $1 }
+print(sortedArr1)
