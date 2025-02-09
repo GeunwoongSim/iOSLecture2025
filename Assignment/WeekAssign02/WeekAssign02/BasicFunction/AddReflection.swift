@@ -9,40 +9,29 @@
  - 회고를 추가하고 "회고가 추가되었습니다." 출력
  
  Warning
- -
+ - Date의 형식이 맞지 않을 수 있음
+ - Date의 형식은 맞지만 유효하지 않은 값일 수 있음
+ - Content가 ""일 수 있음 또는 String으로 받지 못하는 것일 수 있음(이러면 nil이 들어오나?)
 */
 
 extension ReflectionSystem {
     func addReflection() {
-        
-    }
-    /*
-    func legacyAddReflection() { // 회고 추가
-        while true {
-            print("추가할 날짜를 입력하세요 (예: 2024-12-25): ", terminator: "")
-            if let date = readLine(), validateDate(date: date) { // 날짜의 유효성 판단
-                if reflections[date] == nil { // 회고가 존재하지 않음
-                    while true { // 정상적인입력이 들어올때 까지 반복
-                        print("회고 내용을 입력하세요: ", terminator: "")
-                        if let content: String = readLine() {
-                            if content == "" { //빈 내용을 입력
-                                print("작성된 내용이 없습니다.\n")
-                            }else {
-                                let ref: Reflection = Reflection(date: date, content: content)
-                                reflections[date] = ref
-                                print("회고가 추가되었습니다.\n")
-                                break
-                            }
-                        }else {
-                            print("잘못된 입력입니다.\n")
-                        }
-                    }
-                }else { // 회고가 존재함
-                    print("회고가 이미 존재합니다.\n")
-                }
-                break
+        // 날짜를 입력
+        guard let date = userDateInput(how: "추가") else { return }
+        // 입력 받은 날짜에 회고가 없는지 확인
+        guard let searchResult = db.dbSearch(date: date) else {
+            // 입력 받은 날짜에 회고가 없음
+            guard let content = userContentInput() else { return }
+            let reflection = Reflection(date: date, content: content)
+            if db.dbInsert(date: date, content: reflection) {
+                print("회고가 추가되었습니다.\n")
+            }else {
+                print("회고를 추가하지 못했습니다. 잠시후 다시 시도해주세요.\n")
             }
+            return
         }
+        // searchResult에 접근하면 이미 존재하는 정보를 받아올 수 있음
+        print("회고가 이미 존재합니다.\n")
     }
-    */
+    
 }

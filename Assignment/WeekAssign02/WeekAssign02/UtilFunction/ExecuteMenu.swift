@@ -12,11 +12,11 @@
 */
 extension ReflectionSystem {
     func executeMenu(menu: Int) {
-        if menu == 1 { }
-        if menu == 2 { }
-        if menu == 3 { }
-        if menu == 4 { }
-        if menu == 5 { }
+        if menu == 1 { addReflection() }
+        if menu == 2 { searchReflection() }
+        if menu == 3 { editReflection() }
+        if menu == 4 { deleteReflection() }
+        if menu == 5 { printAllReflection() }
         if menu == 6 {
             self.power.toggle()
             print("\n================")

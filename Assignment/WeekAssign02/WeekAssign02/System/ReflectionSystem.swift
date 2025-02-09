@@ -13,7 +13,7 @@
 
 class ReflectionSystem {
     static let shared = ReflectionSystem() // 외부 호출용 싱글톤
-    let db = ReflectionSystemDB.shared.DB
+    let db = ReflectionSystemDB.shared
     var power: Bool = false
     private init() { }
     //프로그램 작동

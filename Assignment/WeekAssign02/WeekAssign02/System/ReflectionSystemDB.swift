@@ -13,6 +13,14 @@
 
 class ReflectionSystemDB {
     static let shared = ReflectionSystemDB()
-    var DB: [String:Reflection] = [:]
+    private var DB: [String:Reflection] = [:]
     private init() { }
+    
+    func dbInsert(date: String, content: Reflection) -> Bool { // db에 회고를 저장 후 결과 반환
+        DB[date] = content
+        return DB[date] != nil ? true : false
+    }
+    func dbSearch(date: String) -> Reflection? { // db에 회고를 찾아서 반환
+        return DB[date]
+    }
 }
