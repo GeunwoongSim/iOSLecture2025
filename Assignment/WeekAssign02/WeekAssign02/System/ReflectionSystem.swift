@@ -19,6 +19,7 @@ class ReflectionSystem {
     //프로그램 작동
     func run() {
         printMenu()
+        userInputData()
     }
     /*
      func program() {
