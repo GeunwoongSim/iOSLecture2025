@@ -18,8 +18,6 @@ class ReflectionSystem {
     
     //프로그램 작동
     func run() {
-        print(db)
-        print("프로그램 실행")
-        self.addReflection()
+        
     }
 }

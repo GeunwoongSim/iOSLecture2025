@@ -7,6 +7,7 @@ What : CLI 기반의 회고시스템(Reflection System)을 개발
 Why : Swift 학습자가 실습을 통해 기초 문법을 익히고 프로젝트 개발 경험을 쌓음
 
 ## 파일 분석
+각 파일의 헤드에 주석추가
 ```swift 
 /*
  File: 파일명.swift
@@ -104,7 +105,22 @@ vscode에서 원하는 폴더 우클릭 generate to tree 하면 나오는거 복
  --->
 ```
 WeekAssign02
- ┗ main.swift
+ ┣ BasicFunction: 메뉴에 등록된 기능
+ ┃ ┣ AddReflection.swift
+ ┃ ┣ DeleteReflection.swift
+ ┃ ┣ EditReflection.swift
+ ┃ ┣ PrintAllReflection.swift
+ ┃ ┣ PrintMenu.swift
+ ┃ ┗ SearchReflection.swift
+ ┣ Data: Data형태에 따른 파일
+ ┃ ┣ Reflection.swift
+ ┃ ┗ ReflectionMenu.swift
+ ┣ System: 프로그램, DB 등
+ ┃ ┣ ReflectionSystem.swift
+ ┃ ┗ ReflectionSystemDB.swift
+ ┣ UtilFunction: 메뉴에 등록은 안됬지만 필요한 기능
+ ┣ Templete.swift: 파일 형식 기록
+ ┗ main.swift: 프로그램 실행
 ```
 
 ## 추가되면 좋은 기능
