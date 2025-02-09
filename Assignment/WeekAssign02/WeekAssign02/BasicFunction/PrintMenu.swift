@@ -21,16 +21,4 @@ extension ReflectionSystem {
         print("5. 전체 회고 목록 출력")
         print("6. 종료\n")
     }
-    func printMenuSelect() {
-        
-    }
-    func legacyMenuPrint() {
-        print(" === 회고 시스템 === ")
-        print("1. 회고 추가") // 1.addReflection()
-        print("2. 회고 조회") // 2.getReflection()
-        print("3. 회고 수정") // 3.updateReflection()
-        print("4. 회고 삭제") // 4.deleteReflection()
-        print("5. 전체 회고 목록 출력") // 5.listAllReflections()
-        print("6. 종료\n")
-    }
 }
