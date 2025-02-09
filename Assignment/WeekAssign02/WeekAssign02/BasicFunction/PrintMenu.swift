@@ -12,7 +12,7 @@
 */
 
 extension ReflectionSystem {
-    func printMenu() {
+    func printMenuBoard() {
         print("==== 회고 시스템 ====")
         print("1. 회고 추가")
         print("2. 회고 조회")
@@ -20,6 +20,9 @@ extension ReflectionSystem {
         print("4. 회고 삭제")
         print("5. 전체 회고 목록 출력")
         print("6. 종료\n")
+    }
+    func printMenuSelect() {
+        
     }
     func legacyMenuPrint() {
         print(" === 회고 시스템 === ")
