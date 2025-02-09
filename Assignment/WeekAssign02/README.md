@@ -7,26 +7,26 @@ What : CLI 기반의 회고시스템(Reflection System)을 개발
 Why : Swift 학습자가 실습을 통해 기초 문법을 익히고 프로젝트 개발 경험을 쌓음
 
 ## 데이터 구조
-### Retrospect 구조체를 사용
+### Reflection 구조체를 사용
   
 |속성|타입|설명|
 |---|---|---|
 |date|String|회고 작성 날짜|
 |content|String|회고 내용|
 ```swift
-struct Retrospect {
+struct Reflection {
     var date: String
     var content: String
 }
 ```
-### RetrospectSyetem 클래스를 싱글톤으로 DB 사용
-|속성|타입|KEY|설명|
+### ReflectionSyeteDB 클래스를 싱글톤으로 DB 사용
+|속성|Value|KEY|설명|
 |---|---|---|---|
-|DB|Retrospect|Date-String|회고|
+|DB|Reflection|Date-String|회고 정보를 담은 DB|
 ```swift
-class RetroSystemDB {
-    static let shared = RetroSystemDB()
-    var DB: [String:Retrospect] = [:]
+class ReflectionSystemDB {
+    static let shared = ReflectionSystemDB()
+    var DB: [String:Reflection] = [:]
     private init { }
 }
 ```
@@ -35,11 +35,11 @@ class RetroSystemDB {
 
 |기능|설명|입력|출력|함수|
 |---|---|---|---|---|
-|회고 추가|특정 날짜에 회고 내용을 추가|날짜: 2025-02-09<br>내용: 오늘은 Swift를 공부했다.|회고가 추가되었습니다.|AddRetrospect|
-|회고 조회|특정 날짜의 회고 내용을 검색|날짜: 2025-02-09|날짜: 2025-02-09<br>내용: 오늘은 Swift를 공부했다.|SearchRetrospect|
-|회고 수정|특정 날짜의 회고 내용을 수정|날짜: 2025-02-09<br>새로운 내용: Swift 프로젝트를 진행했다.|회고가 수정되었습니다.|EditRetrospect|
-|회고 삭제|특정 날짜의 회고 내용을 삭제|날짜: 2025-02-09|회고가 삭제되었습니다.|DeleteRetrospect|
-|전체 회고 목록|날짜별 회고 목록을 출력||날짜별 회고 목록을 출력|PrintAllRetrospect|
+|회고 추가|특정 날짜에 회고 내용을 추가|날짜: 2025-02-09<br>내용: 오늘은 Swift를 공부했다.|회고가 추가되었습니다.|AddReflection|
+|회고 조회|특정 날짜의 회고 내용을 검색|날짜: 2025-02-09|날짜: 2025-02-09<br>내용: 오늘은 Swift를 공부했다.|SearchReflection|
+|회고 수정|특정 날짜의 회고 내용을 수정|날짜: 2025-02-09<br>새로운 내용: Swift 프로젝트를 진행했다.|회고가 수정되었습니다.|EditReflection|
+|회고 삭제|특정 날짜의 회고 내용을 삭제|날짜: 2025-02-09|회고가 삭제되었습니다.|DeleteReflection|
+|전체 회고 목록|날짜별 회고 목록을 출력||날짜별 회고 목록을 출력|PrintAllReflection|
 |프로그램 종료|프로그램 종료||||
 
 ## 프로그램 흐름도
@@ -75,4 +75,20 @@ class RetroSystemDB {
 
 
 ## 파일 구조
+<!--
+vscode에서 원하는 폴더 우클릭 generate to tree 하면 나오는거 복사
+ --->
+```
+WeekAssign02
+ ┗ main.swift
+```
 
+## 추가되면 좋은 기능
+1. 파일 저장 시스템
+2. 로그인 시스템 - 자신의 회고만 관리
+3. 회고 공유 시스템
+4. 
+5. 
+6. 
+7. ...
+8. UI로 개발
