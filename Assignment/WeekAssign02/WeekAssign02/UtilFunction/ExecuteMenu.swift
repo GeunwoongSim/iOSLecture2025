@@ -17,11 +17,6 @@ extension ReflectionSystem {
         if menu == 3 { editReflection() }
         if menu == 4 { deleteReflection() }
         if menu == 5 { printAllReflection() }
-        if menu == 6 {
-            self.power.toggle()
-            print("\n================")
-            print("프로그램을 종료합니다")
-            print("================")
-        }
+        if menu == 6 { exitProgram() }
     }
 }
