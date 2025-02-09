@@ -13,4 +13,3 @@ import Foundation
 
 // 프로그램 작동
 ReflectionSystem.shared.run()
-

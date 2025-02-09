@@ -49,7 +49,7 @@ class ReflectionSystem {
 ```swift
 class ReflectionSystemDB {
     static let shared = ReflectionSystemDB()
-    var DB: [String:Reflection] = [:]
+    private var DB: [String:Reflection] = [:]
     private init() { }
 }
 ```
@@ -97,26 +97,7 @@ class ReflectionSystemDB {
 ## 파일 구조
 <!--
 vscode에서 원하는 폴더 우클릭 generate to tree 하면 나오는거 복사
-```
-WeekAssign02
- ┣ BasicFunction: 메뉴에 등록된 기능
- ┃ ┣ AddReflection.swift
- ┃ ┣ DeleteReflection.swift
- ┃ ┣ EditReflection.swift
- ┃ ┣ PrintAllReflection.swift
- ┃ ┣ PrintMenu.swift
- ┃ ┗ SearchReflection.swift
- ┣ Data: Data형태에 따른 파일
- ┃ ┣ Reflection.swift
- ┃ ┗ ReflectionMenu.swift
- ┣ System: 프로그램, DB 등
- ┃ ┣ ReflectionSystem.swift
- ┃ ┗ ReflectionSystemDB.swift
- ┣ UtilFunction: 메뉴에 등록은 안됬지만 필요한 기능
- ┣ Templete.swift: 파일 형식 기록
- ┗ main.swift: 프로그램 실행
-```
- --->
+--->
 
 ```
 📦 WeekAssign02
@@ -129,8 +110,7 @@ WeekAssign02
  ┃ ┣ 📜 PrintMenu.swift
  ┃ ┗ 📜 SearchReflection.swift
  ┣ 📂 Data
- ┃ ┣ 📜 Reflection.swift
- ┃ ┗ 📜 Templete.swift
+ ┃ ┗ 📜 Reflection.swift
  ┣ 📂 System
  ┃ ┣ 📜 ReflectionSystem.swift
  ┃ ┗ 📜 ReflectionSystemDB.swift
@@ -141,7 +121,8 @@ WeekAssign02
  ┣ 📂 UtilFunction
  ┃ ┣ 📜 ExecuteMenu.swift
  ┃ ┗ 📜 ValidateDate.swift
- ┗ 📜 main.swift
+ ┣ 📜 main.swift
+ ┗ 📜 Templete.swift
 ```
 ## 추가되면 좋은 기능
 1. 파일 저장 시스템
