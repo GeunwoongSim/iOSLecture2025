@@ -17,6 +17,7 @@
 - [02.04 퀴즈](Assignment/DayAssign03_0204/DayAssign03_0204/main.swift)
 ## 주간 과제
 - [1주차](Assignment/WeekAssign01/WeekAssign01/main.swift)
+- [2주차](Assignment/WeekAssign02)
 # create a new repository on the command line
 ```swift
 echo "# iOSLecture2025" >> README.md
