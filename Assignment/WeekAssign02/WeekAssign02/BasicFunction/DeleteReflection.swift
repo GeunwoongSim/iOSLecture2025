@@ -13,7 +13,6 @@
 
 extension ReflectionSystem {
     func deleteReflection() {
-        
     }
     /*
      func deleteReflection() { // 회고 삭제

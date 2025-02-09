@@ -14,22 +14,12 @@
 
 extension ReflectionSystem {
     func searchReflection() {
-        
-    }
-    /*
-    func legacyGetReflection() { // 회고 조회
-        while true {
-            print("조회할 날짜를 입력하세요 (예: 2024-12-25): ", terminator: "")
-            if let date = readLine(), validateDate(date: date) { // 날짜의 유효성 판단
-                if let data = reflections[date] {
-                    print("날짜: \(date)")
-                    print("내용: \(data.content)\n")
-                }else {
-                    print("회고가 존재하지 않습니다.\n")
-                }
-                break
-            }
+        guard let date = userDateInput(how: "조회") else { return }
+        guard let searchResult = db.dbSearch(date: date) else {
+            print("회고가 존재하지 않습니다.\n")
+            return
         }
+        print("날짜: \(searchResult.date)")
+        print("내용: \(searchResult.content)\n")
     }
-    */
 }
