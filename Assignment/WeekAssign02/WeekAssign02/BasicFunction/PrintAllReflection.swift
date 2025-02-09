@@ -13,14 +13,16 @@
 
 extension ReflectionSystem {
     func printAllReflection() {
-        let reflections: [(String, Reflection)] = db.dbSearchAll()
+        let reflections: [Reflection] = db.dbSearchAll()
         print("=== 저장된 회고 목록 ===")
         if reflections.isEmpty { print("저장된 회고가 없습니다.") }
         else {
             for (idx, reflection) in reflections.enumerated() {
-                print("날짜: \(reflection.1.date)")
-                print("내용: \(reflection.1.content)")
-                if idx != reflections.count - 1 { print("--------------------") }
+                print("날짜: \(reflection.date)")
+                print("내용: \(reflection.content)")
+                if idx != reflections.count - 1 {
+                    print("--------------------")
+                }
             }
         }
         print("====================\n")

@@ -13,21 +13,12 @@
 
 extension ReflectionSystem {
     func deleteReflection() {
+        guard let date = userDateInput(how: "삭제") else { return }
+        guard let deleteResult = db.dbDelete(date: date) else {
+            print("회고가 존재하지 않습니다.\n")
+            return
+        }
+        print("회고가 삭제되었습니다.\n")
+        // deleteResult에 접근하면 삭제한 정보를 받아올 수 있음
     }
-    /*
-     func deleteReflection() { // 회고 삭제
-         while true {
-             print("삭제할 날짜를 입력하세요 (예: 2024-12-25): ", terminator: "")
-             if let date = readLine(), validateDate(date: date) { // 날짜의 유효성 판단
-                 if reflections[date] == nil {
-                     print("회고가 존재하지 않습니다.\n")
-                 }else {
-                     reflections[date] = nil
-                     print("회고가 삭제되었습니다.\n")
-                 }
-                 break
-             }
-         }
-     }
-     */
 }

@@ -23,10 +23,10 @@ class ReflectionSystemDB {
     func dbSearch(date: String) -> Reflection? { // db에 회고를 찾아서 반환
         return DB[date]
     }
-    func dbSearchAll() -> [(String, Reflection)]{
-        return DB.sorted(by: {
-            if $0.key < $1.key { return true }
-            else { return false }
-        })
+    func dbSearchAll() -> [Reflection] { // db의 내용을 반환
+        return DB.values.sorted{ $0.date < $1.date ? true : false }
+    }
+    func dbDelete(date: String) -> Reflection? { // db에서 회고를 삭제 후 반환
+        return DB.removeValue(forKey: date)
     }
 }
