@@ -1,17 +1,14 @@
 /*
  File: EditReflection.swift
  Purpose: 특정 날짜의 회고 내용을 수정
+   
+ Data
+ - date: String
+ - searchResult: Reflection? // 회고가 존재하지 않으면 nil
  
- Input Data
- - 파일에서 처리하는 기능에 대한 입력, 전달 값
- Output Data
- - 파일에서 처리한 내용에 대한 출력, 반환 값
- 
- Warning
- -
-*/
-
-
+ etc
+ - 
+ */
 extension ReflectionSystem {
     func editReflection() {
         guard let date = userDateInput(how: "수정") else { return }

@@ -1,12 +1,10 @@
 /*
- File: 파일명.swift
- Purpose: 해당 파일의 목적
+ File: Templete.swift
+ Purpose: 파일 헤드에 작성할 주석의 템플릿
  
- Input Data
- - 파일에서 처리하는 기능에 대한 입력, 전달 값
- Output Data
- - 파일에서 처리한 내용에 대한 출력, 반환 값
- 
- Warning
- -
+ Data
+ - 파일에서 사용하는 data에 대한 설명
+
+ etc
+ - 추가적인 설명, 나중에 바꾸면 좋겠는것 등을 작성
 */

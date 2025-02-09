@@ -1,16 +1,13 @@
 /*
  File: UserContentInput.swift
- Purpose: 해당 파일의 목적
+ Purpose: 회고의 내용을 입력했을때 이상한 입력인지 판단하고 빈 값인지 확인
  
- Input Data
- - 파일에서 처리하는 기능에 대한 입력, 전달 값
- Output Data
- - 파일에서 처리한 내용에 대한 출력, 반환 값
- 
- Warning
- -
-*/
+ Data
+ - content: String // content가 nil이거나 ""이면 nil을 반환, 아니면 정상적인 content를 반환
 
+ etc
+ - 지금 대부분 guard 구문으로 nil을 반환하고 끝나는데 이 부분들을 에러로 해서 throw Error처리 해보고 싶다
+*/
 extension ReflectionSystem {
     func userContentInput() -> String? {
         print("회고 내용을 입력하세요: ", terminator: "")

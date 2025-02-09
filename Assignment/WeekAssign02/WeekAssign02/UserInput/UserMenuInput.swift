@@ -1,16 +1,14 @@
 /*
- File: UserInputData.swift
+ File: UserMenuInput.swift
  Purpose: 유저의 메뉴 입력을 받는 함수
  
- Input Data
- - 사용자가 String을 입력
- Output Data
- - 입력한 결과값을 출력
- 
- Warning
- - 입력으로 이상한 값이 들어올 수 있음 or nil 입력
-*/
+ Data
+ - input: String // 입력받은 메뉴의 String값
+ - menu: Int // String값을 Int로 캐스팅, 이때 1~6이 아니면 잘못된메뉴 선택으로 -1반환, 아니면 1~6 반환
 
+ etc
+ - 
+*/
 extension ReflectionSystem {
     func userMenuInput() -> Int {
         print("메뉴를 선택하세요: ", terminator: "")

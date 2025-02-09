@@ -1,18 +1,16 @@
 /*
- File: 파일명.swift
- Purpose: 해당 파일의 목적
+ File: ExitProgram.swift
+ Purpose: 프로그램을 종료하기 위한 파일
  
- Input Data
- - 파일에서 처리하는 기능에 대한 입력, 전달 값
- Output Data
- - 파일에서 처리한 내용에 대한 출력, 반환 값
- 
- Warning
- -
+ Data
+ - power: Bool // 처음 System이 가능되면 true가 되고 exit를 작동하면 false가 되어 반복문 종료
+
+ etc
+ - 
 */
 extension ReflectionSystem {
     func exitProgram() {
-        self.power.toggle()
+        power.toggle()
         print("================")
         print("================")
         print("****************")

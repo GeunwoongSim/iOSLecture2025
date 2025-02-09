@@ -2,15 +2,13 @@
  File: DeleteReflection.swift
  Purpose: 특정 날짜의 회고 내용을 삭제
  
- Input Data
- - 파일에서 처리하는 기능에 대한 입력, 전달 값
- Output Data
- - 파일에서 처리한 내용에 대한 출력, 반환 값
+ Data
+ - date: String
+ - deleteResult: Reflection? // 회고가 존재하지 않으면 nil
  
- Warning
- -
+ etc
+ - deleteResult의 경우 삭제한 회고에 대한 정보를 이용할만한게 있을까하여 남겨놓음
 */
-
 extension ReflectionSystem {
     func deleteReflection() {
         guard let date = userDateInput(how: "삭제") else { return }

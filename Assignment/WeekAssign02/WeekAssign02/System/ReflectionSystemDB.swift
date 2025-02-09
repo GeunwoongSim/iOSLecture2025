@@ -1,16 +1,15 @@
 /*
  File: ReflectionSystemDB.swift
- Purpose: 회고 시스템에서 사용할 싱글톤 작성
+ Purpose: 회고 시스템의 DB
  
- Input Data
- - 파일에서 처리하는 기능에 대한 입력, 전달 값
- Output Data
- - 파일에서 처리한 내용에 대한 출력, 반환 값
- 
- Warning
- -
-*/
+ Data
+ - shared // DB의 호출용 싱글톤
+ - DB: [String:Reflection] // Key: date(String), Value: Reflection인 회고를 저장하는 DB 역할
 
+ etc
+ - 간단한 내용으로 작성되어 있어 한 파일로 사용
+ - class이니까 protocol 사용도 좋을듯
+*/
 class ReflectionSystemDB {
     static let shared = ReflectionSystemDB()
     private var DB: [String:Reflection] = [:]

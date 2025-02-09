@@ -10,7 +10,17 @@
  Warning
  -
 */
+/*
+ File: PrintAllReflection.swift
+ Purpose: 저장된 모든 회고를 출력
+ 
+ Data
+ - reflections: Reflection // db에 저장된 회고목록을 전부 불러옴, 없으면 nil이 아닌 []이 반환
 
+ etc
+ - 보여주기 식으로 print가 많을뿐..
+ - 나중에 UI로 다시 짜봐도 괜찮을듯?
+*/
 extension ReflectionSystem {
     func printAllReflection() {
         let reflections: [Reflection] = db.dbSearchAll()

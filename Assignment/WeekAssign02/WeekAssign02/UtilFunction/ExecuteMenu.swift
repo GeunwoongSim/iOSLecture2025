@@ -1,14 +1,12 @@
 /*
- File: 파일명.swift
- Purpose: 해당 파일의 목적
+ File: ExecuteMenu.swift
+ Purpose: 입력받은 메뉴에 따른 메뉴 실행
  
- Input Data
- - 파일에서 처리하는 기능에 대한 입력, 전달 값
- Output Data
- - 파일에서 처리한 내용에 대한 출력, 반환 값
- 
- Warning
- -
+ Data
+ - menu: Int // 입력받은 메뉴 값의 Int형, 1~6은 정상적인 입력으로 메뉴 실행, -1은 오류상태
+
+ etc
+ - 지금은 -1이 들어오면 아무것도 안하는데 나중엔 먼가 처리를 해주면 좋을듯
 */
 extension ReflectionSystem {
     func executeMenu(menu: Int) {

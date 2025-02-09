@@ -2,16 +2,13 @@
  File: SearchReflection.swift
  Purpose: 특정 날짜의 회고 내용을 검색
  
- Input Data
- - 파일에서 처리하는 기능에 대한 입력, 전달 값
- Output Data
- - 파일에서 처리한 내용에 대한 출력, 반환 값
- 
- Warning
- -
+ Data
+ - date: String
+ - searchResult: Reflection? // 회고가 존재하지 않으면 nil
+
+ etc
+ - 추가적인 설명, 나중에 바꾸면 좋겠는것 등을 작성
 */
-
-
 extension ReflectionSystem {
     func searchReflection() {
         guard let date = userDateInput(how: "조회") else { return }

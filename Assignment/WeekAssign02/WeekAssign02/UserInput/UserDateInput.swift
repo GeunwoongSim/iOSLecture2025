@@ -2,17 +2,12 @@
  File: UserDateInput.swift
  Purpose: 유저가 날짜를 입력
  
- Input Data
- - Date: String (yyyy-mm-dd)
- Output Data
- - Date: String (yyyy-mm-dd)
- 
- Warning
- - Date의 형식이 맞지 않을 수 있음
- - Date의 형식은 맞지만 유효하지 않은 값일 수 있음
- - Content가 ""일 수 있음 또는 String으로 받지 못하는 것일 수 있음(이러면 nil이 들어오나?)
-*/
+ Data
+ - date: String // 이상한 입력이 들어와 nil이 되는것만 확인 나머지 유효성은 validateDate로 위임
 
+ etc
+ -
+*/
 extension ReflectionSystem {
     func userDateInput(how: String) -> String? {
         print("\(how)할 날짜를 입력하세요 (예: 2024-12-25): ", terminator: "")

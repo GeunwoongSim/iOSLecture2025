@@ -2,18 +2,14 @@
  File: AddReflection.swift
  Purpose: 특정 날짜에 회고 내용을 추가
  
- Input Data
- - Date: String (yyyy-mm-dd)
- - Content: String
- Output Data
- - 회고를 추가하고 "회고가 추가되었습니다." 출력
- 
- Warning
- - Date의 형식이 맞지 않을 수 있음
- - Date의 형식은 맞지만 유효하지 않은 값일 수 있음
- - Content가 ""일 수 있음 또는 String으로 받지 못하는 것일 수 있음(이러면 nil이 들어오나?)
-*/
+ Data (사용하는 자료)
+ - date: String
+ - reflection: Reflection
+ - searchResult: Reflection? // 회고가 존재하지 않으면 nil
 
+ etc
+ - searchResult의 경우 추가한 회고에 대한 정보를 이용할만한게 있을까하여 남겨놓음
+*/
 extension ReflectionSystem {
     func addReflection() {
         // 날짜를 입력

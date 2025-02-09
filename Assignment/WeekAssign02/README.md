@@ -13,13 +13,11 @@ Why : Swift 학습자가 실습을 통해 기초 문법을 익히고 프로젝�
  File: 파일명.swift
  Purpose: 해당 파일의 목적
  
- Input Data
- - 파일에서 처리하는 기능에 대한 입력, 전달 값
- Output Data
- - 파일에서 처리한 내용에 대한 출력, 반환 값
+ Data
+ - 파일에서 사용하는 data에 대한 설명
  
- Warning
- -
+ etc
+ - 추가적인 설명, 나중에 바꾸면 좋겠는것 등을 작성
 */
 ```
 
@@ -121,30 +119,30 @@ WeekAssign02
  --->
 
 ```
-WeekAssign02
- ┣ BasicFunction
- ┃ ┣ AddReflection.swift
- ┃ ┣ DeleteReflection.swift
- ┃ ┣ EditReflection.swift
- ┃ ┣ PrintAllReflection.swift
- ┃ ┣ PrintMenu.swift
- ┃ ┗ SearchReflection.swift
- ┣ Data
- ┃ ┣ Reflection.swift
- ┃ ┗ ReflectionMenu.swift
- ┣ System
- ┃ ┣ ReflectionSystem.swift
- ┃ ┗ ReflectionSystemDB.swift
- ┣ UtilFunction
- ┃ ┗ ValidateDate.swift
- ┣ Templete.swift
- ┗ main.swift
+📦 WeekAssign02
+ ┣ 📂 BasicFunction
+ ┃ ┣ 📜 AddReflection.swift
+ ┃ ┣ 📜 DeleteReflection.swift
+ ┃ ┣ 📜 EditReflection.swift
+ ┃ ┣ 📜 ExitProgram.swift
+ ┃ ┣ 📜 PrintAllReflection.swift
+ ┃ ┣ 📜 PrintMenu.swift
+ ┃ ┗ 📜 SearchReflection.swift
+ ┣ 📂 Data
+ ┃ ┣ 📜 Reflection.swift
+ ┃ ┗ 📜 Templete.swift
+ ┣ 📂 System
+ ┃ ┣ 📜 ReflectionSystem.swift
+ ┃ ┗ 📜 ReflectionSystemDB.swift
+ ┣ 📂 UserInput
+ ┃ ┣ 📜 UserContentInput.swift
+ ┃ ┣ 📜 UserDateInput.swift
+ ┃ ┗ 📜 UserMenuInput.swift
+ ┣ 📂 UtilFunction
+ ┃ ┣ 📜 ExecuteMenu.swift
+ ┃ ┗ 📜 ValidateDate.swift
+ ┗ 📜 main.swift
 ```
-## 프로그램 제작중 떠오른 생각 정리
-- [ ] 에러처리로 1.유효하지 않은 형식 2.유효하지 않은 날짜
-- [ ] Temp
-
-
 ## 추가되면 좋은 기능
 1. 파일 저장 시스템
 2. 로그인 시스템 - 자신의 회고만 관리

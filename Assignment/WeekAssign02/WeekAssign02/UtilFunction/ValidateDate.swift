@@ -2,13 +2,14 @@
  File: ValidateDate.swift
  Purpose: 입력받은 날짜의 유효성 판단
  
- Input Data
- - date: String
- Output Data
- - Bool: true면 유효한 날짜, false면 유효하지 않은 날짜
+ Data
+ - date: String // 1차 검사로 nil이 아닌 값이 들어옴
+ - regex: 정규식 // yyyy-mm-dd 그중에서도 mm은 01~09,10~12까지, dd는 01~09,10~29,30,31만 가능하다
+ - dateArr: [String] // [0]: yyyy, [1]: mm, [2]: dd 형태
  
- Warning
- -
+ etc
+ - 정규식을 활용한 date.wholeMatch(of: regex)는 판단만 하면 되서 '_' 처리
+ - 2월과 30일까지인 달 처리가 먼가 예쁘지 않다. 나중에 하나로 합쳐보자
 */
 extension ReflectionSystem {
     // 유효성 검사
@@ -21,7 +22,7 @@ extension ReflectionSystem {
         }
         
         // 입력된 날짜에 따른 검사
-        let dateArr: [String] = date.components(separatedBy: "-") // [0]: YYYY, [1]: MM, [2]: DD
+        let dateArr: [String] = date.components(separatedBy: "-")
         if dateArr[2] == "31", ["04", "06", "09", "11"].contains(dateArr[1]) {
             print("날짜가 유효하지 않습니다.\n")
             return false

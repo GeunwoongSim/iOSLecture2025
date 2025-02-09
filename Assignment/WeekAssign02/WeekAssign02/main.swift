@@ -1,9 +1,13 @@
-//
-//  main.swift
-//  WeekAssign02
-//
-//  Created by 심근웅 on 2/9/25.
-//
+/*
+ File: main.swift
+ Purpose: 회고 시스템의 작동
+ 
+ Data
+ -
+
+ etc
+ - 
+*/
 
 import Foundation
 
