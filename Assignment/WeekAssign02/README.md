@@ -6,7 +6,30 @@ What : CLI 기반의 회고시스템(Reflection System)을 개발
 
 Why : Swift 학습자가 실습을 통해 기초 문법을 익히고 프로젝트 개발 경험을 쌓음
 
----
+## 데이터 구조
+### Retrospect 구조체를 사용
+  
+|속성|타입|설명|
+|---|---|---|
+|date|String|회고 작성 날짜|
+|content|String|회고 내용|
+```swift
+struct Retrospect {
+    var date: String
+    var content: String
+}
+```
+### RetrospectSyetem 클래스를 싱글톤으로 DB 사용
+|속성|타입|KEY|설명|
+|---|---|---|---|
+|DB|Retrospect|Date-String|회고|
+```swift
+class RetroSystemDB {
+    static let shared = RetroSystemDB()
+    var DB: [String:Retrospect] = [:]
+    private init { }
+}
+```
 
 ## 기능 목록 및 설명 (CRUD)
 
