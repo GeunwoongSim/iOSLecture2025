@@ -7,5 +7,6 @@
 
 import Foundation
 
-print("Hello, World!")
+// 프로그램 작동
+ReflectionSystem.shared.run()
 

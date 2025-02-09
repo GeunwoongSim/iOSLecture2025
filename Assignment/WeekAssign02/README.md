@@ -6,6 +6,22 @@ What : CLI 기반의 회고시스템(Reflection System)을 개발
 
 Why : Swift 학습자가 실습을 통해 기초 문법을 익히고 프로젝트 개발 경험을 쌓음
 
+## 파일 분석
+```swift 
+/*
+ File: 파일명.swift
+ Purpose: 해당 파일의 목적
+ 
+ Input Data
+ - 파일에서 처리하는 기능에 대한 입력, 전달 값
+ Output Data
+ - 파일에서 처리한 내용에 대한 출력, 반환 값
+ 
+ Warning
+ -
+*/
+```
+
 ## 데이터 구조
 ### Reflection 구조체를 사용
   
@@ -23,7 +39,7 @@ struct Reflection {
 ```swift
 class ReflectionSystem {
     static let shared = ReflectionSystem()
-    private init { }
+    private init() { }
     func run() { }
 }
 ```
@@ -35,7 +51,7 @@ class ReflectionSystem {
 class ReflectionSystemDB {
     static let shared = ReflectionSystemDB()
     var DB: [String:Reflection] = [:]
-    private init { }
+    private init() { }
 }
 ```
 
