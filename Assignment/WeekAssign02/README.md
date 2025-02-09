@@ -19,7 +19,15 @@ struct Reflection {
     var content: String
 }
 ```
-### ReflectionSyeteDB 클래스를 싱글톤으로 DB 사용
+### ReflectionSystem 클래스를 싱글톤으로 전체 프로그램으로 사용
+```swift
+class ReflectionSystem {
+    static let shared = ReflectionSystem()
+    private init { }
+    func run() { }
+}
+```
+### ReflectionSystemDB 클래스를 싱글톤으로 DB로 사용
 |속성|Value|KEY|설명|
 |---|---|---|---|
 |DB|Reflection|Date-String|회고 정보를 담은 DB|
