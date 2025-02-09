@@ -102,7 +102,6 @@ class ReflectionSystemDB {
 ## 파일 구조
 <!--
 vscode에서 원하는 폴더 우클릭 generate to tree 하면 나오는거 복사
- --->
 ```
 WeekAssign02
  ┣ BasicFunction: 메뉴에 등록된 기능
@@ -122,6 +121,32 @@ WeekAssign02
  ┣ Templete.swift: 파일 형식 기록
  ┗ main.swift: 프로그램 실행
 ```
+ --->
+
+```
+WeekAssign02
+ ┣ BasicFunction
+ ┃ ┣ AddReflection.swift
+ ┃ ┣ DeleteReflection.swift
+ ┃ ┣ EditReflection.swift
+ ┃ ┣ PrintAllReflection.swift
+ ┃ ┣ PrintMenu.swift
+ ┃ ┗ SearchReflection.swift
+ ┣ Data
+ ┃ ┣ Reflection.swift
+ ┃ ┗ ReflectionMenu.swift
+ ┣ System
+ ┃ ┣ ReflectionSystem.swift
+ ┃ ┗ ReflectionSystemDB.swift
+ ┣ UtilFunction
+ ┃ ┗ ValidateDate.swift
+ ┣ Templete.swift
+ ┗ main.swift
+```
+## 프로그램 제작중 떠오른 생각 정리
+- [ ] 에러처리로 1.유효하지 않은 형식 2.유효하지 않은 날짜
+- [ ] Temp
+
 
 ## 추가되면 좋은 기능
 1. 파일 저장 시스템
