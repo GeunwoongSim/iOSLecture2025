@@ -11,6 +11,8 @@
 ## Organization Identifier
 - Lecture : lecture 통일
 - Assignment : assign 통일
+## 실습과제
+- [02.10 실습](Assignment/DayAssign04_0210)
 ## 퀴즈
 - [01.24 퀴즈](Assignment/DayAssign01_0124/DayAssign01_0124/main.swift)
 - [02.03 퀴즈](Assignment/DayAssign02_0203/DayAssign02_0203/main.swift)
