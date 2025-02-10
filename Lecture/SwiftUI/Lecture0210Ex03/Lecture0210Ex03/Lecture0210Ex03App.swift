@@ -11,7 +11,7 @@ import SwiftUI
 struct Lecture0210Ex03App: App {
     var body: some Scene {
         WindowGroup {
-            ArrayManagerView()
+            Practice01()
         }
     }
 }
