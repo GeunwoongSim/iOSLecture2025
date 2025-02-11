@@ -9,15 +9,14 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var dataLoader: ProductDataLoader
     var body: some View {
         NavigationView {
-            ProductListView()
-//                .navigationTitle("과일마트")
+            ProductListView(products: dataLoader.products)
         }
     }
 }
 
 #Preview {
-    print(products)
-    HomeView()
+    HomeView(dataLoader: ProductDataLoader())
 }

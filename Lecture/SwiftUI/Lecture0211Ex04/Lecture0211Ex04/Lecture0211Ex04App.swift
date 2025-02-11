@@ -11,7 +11,7 @@ import SwiftUI
 struct Lecture0211Ex04App: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView(dataLoader: ProductDataLoader())
         }
     }
 }
