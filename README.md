@@ -17,6 +17,7 @@
 - [02.03 퀴즈](Assignment/DayAssign02_0203/DayAssign02_0203/main.swift)
 - [02.04 퀴즈](Assignment/DayAssign03_0204/DayAssign03_0204/main.swift)
 - [02.10 실습](Assignment/DayAssign04_0210/DayAssign04_0210)
+- [02.25 퀴즈](Assignment/DayAssign05_0225/DayAssign05_0225)
   
 ## 주간 과제
 - [1주차](Assignment/WeekAssign01/WeekAssign01/main.swift)
