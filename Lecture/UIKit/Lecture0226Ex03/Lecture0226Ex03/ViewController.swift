@@ -11,13 +11,20 @@ class ViewController: UIViewController {
 
   @IBOutlet weak var currentTimeLbl: UILabel!
   @IBOutlet weak var selectedTimeLbl: UILabel!
-  let dateForm : DateFormatter = {
+  let dateForm: DateFormatter = {
     let formatter = DateFormatter()
     formatter.locale = Locale(identifier: "ko_KR")
     formatter.dateFormat = "yyyy-MM-dd HH:mm EEE"
     return formatter
   }()
-  var selectedTime: Date?
+  let alarmForm: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "ko_KR")
+    formatter.dateFormat = "yyyy-MM-dd HH:mm"
+    return formatter
+  }()
+  
+  var selectedTime: String = ""
   
   let timeSelector = #selector(ViewController.updateTime)
   let interval = 1.0
@@ -32,19 +39,18 @@ class ViewController: UIViewController {
 
   @objc func updateTime() {
     let date = Date()
+    print("current = \(alarmForm.string(from: date)), selected = \(selectedTime)")
     currentTimeLbl.text = "현재시간: \(dateForm.string(from: date))"
-//    if dateForm.string(from: date) == dateForm.string(from: selectedTime) {
-//      view.backgroundColor = .red
-//    }else {
-//      view.backgroundColor = .systemBackground
-//    }
-    
+    if alarmForm.string(from: date) == selectedTime {
+      self.view.backgroundColor = UIColor.red
+    }else {
+      self.view.backgroundColor = UIColor.systemBackground
+    }
   }
   
   @IBAction func pickerChangeValue(_ sender: UIDatePicker) {
-    selectedTime = sender.date
     selectedTimeLbl.text = "선택시간: \(dateForm.string(from: sender.date))"
-    
+    selectedTime = alarmForm.string(from: sender.date)
   }
   
 }
