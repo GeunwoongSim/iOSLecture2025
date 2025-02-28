@@ -17,8 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KoN-pI-I68">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KoN-pI-I68">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0Cd-ix-bWb">
                                     <size key="itemSize" width="128" height="128"/>
@@ -34,16 +35,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card1" translatesAutoresizingMaskIntoConstraints="NO" id="6KI-ZZ-i71">
-                                                    <rect key="frame" x="-15" y="-58" width="158" height="244"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="card1" translatesAutoresizingMaskIntoConstraints="NO" id="6KI-ZZ-i71">
+                                                    <rect key="frame" x="0.0" y="0.0" width="158" height="244"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="6KI-ZZ-i71" firstAttribute="leading" secondItem="FPC-ao-l3E" secondAttribute="leading" id="SOC-Rg-wVa"/>
-                                                <constraint firstItem="6KI-ZZ-i71" firstAttribute="top" secondItem="FPC-ao-l3E" secondAttribute="top" id="Y76-YJ-46G"/>
-                                                <constraint firstAttribute="trailing" secondItem="6KI-ZZ-i71" secondAttribute="trailing" id="c9d-aA-mF5"/>
-                                                <constraint firstAttribute="bottom" secondItem="6KI-ZZ-i71" secondAttribute="bottom" id="cBE-0r-KdR"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="imageView" destination="6KI-ZZ-i71" id="ITq-KF-Jey"/>
@@ -54,12 +50,6 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="KoN-pI-I68" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EHZ-lZ-z9h"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KoN-pI-I68" secondAttribute="bottom" id="YJQ-oJ-c8C"/>
-                            <constraint firstItem="KoN-pI-I68" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="agf-Rk-uN7"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KoN-pI-I68" secondAttribute="trailing" id="dlu-v6-jjC"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="KoN-pI-I68" id="8sk-2M-Ida"/>

@@ -37,7 +37,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
   // 셀 크기
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let width = (collectionView.frame.width - 30) / 3  // 3열
-    return CGSize(width: width, height: width)  // 정사각형 셀
+    return CGSize(width: width, height: width*1.5)  // 정사각형 셀
   }
   
   // 셀 간격
