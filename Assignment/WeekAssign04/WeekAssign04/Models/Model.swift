@@ -6,6 +6,7 @@ struct Movie: Codable {
   let director: String
   let releaseDate: String
   let genre: [String]
+  var isFavorite: Bool
 }
 
 struct Review: Codable {

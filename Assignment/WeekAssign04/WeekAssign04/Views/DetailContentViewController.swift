@@ -28,6 +28,13 @@ class DetailContentViewController: UIViewController, UITableViewDelegate, UITabl
     let btn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(reviewAdd))
     return btn
   }()
+  private lazy var isFavorite: UIButton = {
+    let view = UIButton()
+    view.addTarget(self, action: #selector(favoriteBtnTouch(sender: )), for: .touchUpInside)
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.setImage(UIImage(systemName: "star"), for: .normal)
+    return view
+  }()
   var data: Movie!
   var reviewDatas: [Review] = []
   
@@ -42,6 +49,7 @@ class DetailContentViewController: UIViewController, UITableViewDelegate, UITabl
     view.backgroundColor = .systemBackground
     view.addSubview(imageView)
     view.addSubview(tableView)
+    view.addSubview(isFavorite)
     navigationItem.rightBarButtonItem = reviewBtn
     
     NSLayoutConstraint.activate([
@@ -58,6 +66,20 @@ class DetailContentViewController: UIViewController, UITableViewDelegate, UITabl
       tableView.topAnchor.constraint(equalTo: imageView.bottomAnchor),
       tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
     ])
+    
+    // 즐겨찾기 버튼
+    NSLayoutConstraint.activate([
+      isFavorite.widthAnchor.constraint(equalToConstant: 50),
+      isFavorite.heightAnchor.constraint(equalToConstant: 50),
+      isFavorite.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+      isFavorite.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+    ])
+    
+    if self.data.isFavorite { self.isFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal) }
+    else { self.isFavorite.setImage(UIImage(systemName: "star"), for: .normal) }
+    isFavorite.layer.cornerRadius = 25
+    isFavorite.layer.borderWidth = 1
+    isFavorite.layer.borderColor = UIColor.lightGray.cgColor
   }
   @objc func reviewAdd() {
     let alert = UIAlertController(title: "리뷰 추가", message: nil, preferredStyle: .alert)
@@ -85,6 +107,13 @@ class DetailContentViewController: UIViewController, UITableViewDelegate, UITabl
     
     present(alert, animated: true)
   }
+  @objc func favoriteBtnTouch(sender: UIButton) {
+    data.isFavorite.toggle()
+    if self.data.isFavorite { self.isFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal) }
+    else { self.isFavorite.setImage(UIImage(systemName: "star"), for: .normal) }
+    Repository.share.dbs[Int(data.id)!-1].isFavorite = data.isFavorite
+    Repository.share.jsonSave("movies")
+  }
 }
 
 extension DetailContentViewController {
@@ -92,7 +121,6 @@ extension DetailContentViewController {
     return 5 + reviewDatas.count
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    print(reviewDatas)
     let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell") as! DetailCell
     cell.isUserInteractionEnabled = false
     switch indexPath.row {
