@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 final class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
   // 영화 목록을 보여주는 컬렉션 뷰
@@ -18,7 +19,6 @@ final class HomeViewController: UIViewController, UICollectionViewDelegate, UICo
     let view = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
     view.delegate = self
     view.dataSource = self
-    view.translatesAutoresizingMaskIntoConstraints = false
     // 커스텀 셀 등록
     view.register(MovieCell.self, forCellWithReuseIdentifier: "MovieCell")
     return view
@@ -57,12 +57,10 @@ final class HomeViewController: UIViewController, UICollectionViewDelegate, UICo
     view.addSubview(collectionView)
     navigationItem.rightBarButtonItem = filterBtn
     // Auto Layout
-    NSLayoutConstraint.activate([ // 컬렉션 뷰
-      collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-      collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-    ])
+    collectionView.snp.makeConstraints { // 컬렉션 뷰
+      $0.leading.trailing.top.equalToSuperview()
+      $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+    }
   }
 }
 

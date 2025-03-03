@@ -6,12 +6,12 @@
 //
 
 import UIKit
+import SnapKit
 
 class DetailContentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   // 포스터 이미지
   private lazy var poster: UIImageView = {
     let view = UIImageView()
-    view.translatesAutoresizingMaskIntoConstraints = false
     view.contentMode = .scaleAspectFit
     return view
   }()
@@ -20,7 +20,6 @@ class DetailContentViewController: UIViewController, UITableViewDelegate, UITabl
     let view = UITableView(frame: view.bounds, style: .plain)
     view.delegate = self
     view.dataSource = self
-    view.translatesAutoresizingMaskIntoConstraints = false
     // 커스텀 셀 등록
     view.register(DetailCell.self, forCellReuseIdentifier: "DetailCell")
     return view
@@ -34,7 +33,6 @@ class DetailContentViewController: UIViewController, UITableViewDelegate, UITabl
   private lazy var favoriteBtn: UIButton = {
     let view = UIButton()
     view.addTarget(self, action: #selector(favoriteBtnTouch(sender: )), for: .touchUpInside)
-    view.translatesAutoresizingMaskIntoConstraints = false
     // 기본 이미지 설정
     view.setImage(UIImage(systemName: "star"), for: .normal)
     return view
@@ -60,24 +58,21 @@ class DetailContentViewController: UIViewController, UITableViewDelegate, UITabl
     view.addSubview(favoriteBtn)
     navigationItem.rightBarButtonItem = reviewAddBtn
     // Auto Layout
-    NSLayoutConstraint.activate([ // 포스터 이미지
-      poster.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      poster.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      poster.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-      poster.heightAnchor.constraint(equalToConstant: 300)
-    ])
-    NSLayoutConstraint.activate([ // 테이블 뷰
-      tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      tableView.topAnchor.constraint(equalTo: poster.bottomAnchor),
-      tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-    ])
-    NSLayoutConstraint.activate([ // 즐겨찾기 버튼
-      favoriteBtn.widthAnchor.constraint(equalToConstant: 50),
-      favoriteBtn.heightAnchor.constraint(equalToConstant: 50),
-      favoriteBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-      favoriteBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
-    ])
+    poster.snp.makeConstraints { // 포스터 이미지
+      $0.leading.trailing.equalToSuperview()
+      $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+      $0.height.equalTo(300)
+    }
+    tableView.snp.makeConstraints { // 테이블 뷰
+      $0.leading.trailing.equalToSuperview()
+      $0.top.equalTo(poster.snp.bottom)
+      $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+    }
+    favoriteBtn.snp.makeConstraints { // 즐겨찾기 버튼
+      $0.width.height.equalTo(50)
+      $0.trailing.equalToSuperview().offset(-16)
+      $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-16)
+    }
     // 포스터 UI
     poster.image = UIImage(named: "movie\(data.id)")
     // 즐겨찾기 UI

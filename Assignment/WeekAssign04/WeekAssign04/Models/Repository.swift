@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 final class Repository {
   static var share: Repository = Repository() // 접근자
   private lazy var movieDB: [Movie] = []
@@ -43,7 +42,6 @@ final class Repository {
       self.reviewsSave(reviewDB) // 추가된 리뷰 데이터를 저장
     }
   }
-  
 }
 
 // MARK: private 함수 분리

@@ -6,20 +6,19 @@
 //
 
 import UIKit
+import SnapKit
 
 class DetailCell: UITableViewCell {
   // Row 이름
   lazy var title: UILabel = {
     let view = UILabel()
     view.font = .boldSystemFont(ofSize: 22)
-    view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
   // Row 내용
   lazy var content: UILabel = {
     let view = UILabel()
     view.font = .systemFont(ofSize: 17)
-    view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
   
@@ -34,18 +33,16 @@ class DetailCell: UITableViewCell {
     self.addSubview(title)
     self.addSubview(content)
     // Auto Layout
-    NSLayoutConstraint.activate([ // Row 이름
-      title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-      title.trailingAnchor.constraint(equalTo: self.centerXAnchor, constant: -12),
-      title.topAnchor.constraint(equalTo: self.topAnchor),
-      title.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-    ])
-    NSLayoutConstraint.activate([ // Row 내용
-      content.leadingAnchor.constraint(equalTo: self.centerXAnchor, constant: 12),
-      content.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
-      content.topAnchor.constraint(equalTo: self.topAnchor),
-      content.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-    ])
+    title.snp.makeConstraints { // Row 이름
+      $0.leading.equalToSuperview().offset(24)
+      $0.top.bottom.equalToSuperview()
+      $0.trailing.equalTo(self.snp.centerX).offset(-12)
+    }
+    content.snp.makeConstraints { // Row 내용
+      $0.leading.equalTo(self.snp.centerX).offset(12)
+      $0.trailing.equalToSuperview().offset(-24)
+      $0.top.bottom.equalToSuperview()
+    }
   }
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
