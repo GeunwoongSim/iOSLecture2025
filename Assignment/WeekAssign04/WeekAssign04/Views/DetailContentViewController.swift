@@ -6,37 +6,34 @@
 //
 
 import UIKit
-import SnapKit
 
 class DetailContentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   // 포스터 이미지
-  private lazy var poster: UIImageView = {
-    let view = UIImageView()
-    view.contentMode = .scaleAspectFit
-    return view
-  }()
+  private lazy var poster = UIImageView().then {
+    $0.contentMode = .scaleAspectFit
+    $0.image = UIImage(named: "movie\(data.id)")
+  }
   // 테이블 뷰
-  private lazy var tableView: UITableView = {
-    let view = UITableView(frame: view.bounds, style: .plain)
-    view.delegate = self
-    view.dataSource = self
+  private lazy var tableView = UITableView().then {
+    $0.delegate = self
+    $0.dataSource = self
     // 커스텀 셀 등록
-    view.register(DetailCell.self, forCellReuseIdentifier: "DetailCell")
-    return view
-  }()
+    $0.register(DetailCell.self, forCellReuseIdentifier: "DetailCell")
+  }
   // 리뷰 추가 버튼
-  private lazy var reviewAddBtn: UIBarButtonItem = {
-    let btn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(reviewAdd))
-    return btn
-  }()
+  private lazy var reviewAddBtn = UIBarButtonItem(
+    barButtonSystemItem: .add,
+    target: self,
+    action: #selector(reviewAdd)
+  )
   // 즐겨찾기 버튼
-  private lazy var favoriteBtn: UIButton = {
-    let view = UIButton()
-    view.addTarget(self, action: #selector(favoriteBtnTouch(sender: )), for: .touchUpInside)
-    // 기본 이미지 설정
-    view.setImage(UIImage(systemName: "star"), for: .normal)
-    return view
-  }()
+  private lazy var favoriteBtn = UIButton().then {
+    $0.addTarget(self, action: #selector(favoriteBtnTouch(sender: )), for: .touchUpInside)
+    $0.setImage(UIImage(systemName: data.isFavorite ? "star.fill" : "star"), for: .normal)
+    $0.layer.cornerRadius = 25
+    $0.layer.borderWidth = 1
+    $0.layer.borderColor = UIColor.lightGray.cgColor
+  }
   
   // vc에서 사용하는 변수
   private let viewModel: Repository = Repository.share
@@ -73,28 +70,20 @@ class DetailContentViewController: UIViewController, UITableViewDelegate, UITabl
       $0.trailing.equalToSuperview().offset(-16)
       $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-16)
     }
-    // 포스터 UI
-    poster.image = UIImage(named: "movie\(data.id)")
-    // 즐겨찾기 UI
-    favoriteBtn.layer.cornerRadius = 25
-    favoriteBtn.layer.borderWidth = 1
-    favoriteBtn.layer.borderColor = UIColor.lightGray.cgColor
-    if data.isFavorite { favoriteBtn.setImage(UIImage(systemName: "star.fill"), for: .normal) }
   }
   // 리뷰 추가 버튼 함수
   @objc func reviewAdd() {
-    let alert = UIAlertController(title: "리뷰 추가", message: nil, preferredStyle: .alert)
-    // 평점 작성을 위한 텍스트 필드
-    alert.addTextField(configurationHandler: {
-      $0.placeholder = "평점을 작성해 주세요(1~5)"
-      $0.keyboardType = .numberPad
-    })
-    // 리뷰 작성을 위한 텍스트 필드
-    alert.addTextField(configurationHandler: {
-      $0.placeholder = "리뷰를 작성해 주세요"
-    })
+    let alert = UIAlertController(title: "리뷰 추가", message: nil, preferredStyle: .alert).then {
+      $0.addTextField() { // 평점 작성을 위한 텍스트 필드
+        $0.placeholder = "평점을 작성해 주세요(1~5)"
+        $0.keyboardType = .numberPad
+      }
+      $0.addTextField() { // 리뷰 작성을 위한 텍스트 필드
+        $0.placeholder = "리뷰를 작성해 주세요"
+      }
+    }
     // 저장 버튼
-    let save = UIAlertAction(title: "저장", style: .default, handler: {_ in
+    let save = UIAlertAction(title:"저장", style: .default) { _ in
       // 저장 버튼을 누르면 평점과 리뷰를 받아옴(둘중 하나라도 제대로 안되어있으면 저장 안됨)
       guard let ratingStr = alert.textFields?[0].text,
             let rating = Int(ratingStr),
@@ -108,7 +97,7 @@ class DetailContentViewController: UIViewController, UITableViewDelegate, UITabl
       self.viewModel.send(.addReview(review: data))
       self.reviewDatas.append(data)
       self.tableView.reloadData()
-    })
+    }
     // 취소 버튼
     alert.addAction(UIAlertAction(title: "취소", style: .destructive))
     alert.addAction(save)

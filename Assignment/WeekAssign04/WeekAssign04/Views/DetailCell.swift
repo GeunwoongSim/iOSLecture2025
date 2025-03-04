@@ -6,22 +6,16 @@
 //
 
 import UIKit
-import SnapKit
 
 class DetailCell: UITableViewCell {
   // Row 이름
-  lazy var title: UILabel = {
-    let view = UILabel()
-    view.font = .boldSystemFont(ofSize: 22)
-    return view
-  }()
+  lazy var title = UILabel().then {
+    $0.font = .boldSystemFont(ofSize: 22)
+  }
   // Row 내용
-  lazy var content: UILabel = {
-    let view = UILabel()
-    view.font = .systemFont(ofSize: 17)
-    return view
-  }()
-  
+  lazy var content = UILabel().then {
+    $0.font = .systemFont(ofSize: 17)
+  }
   // MARK: Init
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)

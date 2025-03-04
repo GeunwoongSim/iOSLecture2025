@@ -6,61 +6,54 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		5EFEC5652D75EC1F00B7CC96 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5EFEC5642D75EC1F00B7CC96 /* SnapKit */; };
-		5EFEC5BD2D769F3500B7CC96 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 5EFEC5BC2D769F3500B7CC96 /* Then */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
-		5EFEC1982D71843A00B7CC96 /* WeekAssign04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeekAssign04.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EFEC5832D76803400B7CC96 /* Lecture0304Ex01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lecture0304Ex01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		5EFEC1AA2D71843C00B7CC96 /* Exceptions for "WeekAssign04" folder in "WeekAssign04" target */ = {
+		5EFEC5952D76803600B7CC96 /* Exceptions for "Lecture0304Ex01" folder in "Lecture0304Ex01" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Resources/Info.plist,
+				Info.plist,
 			);
-			target = 5EFEC1972D71843A00B7CC96 /* WeekAssign04 */;
+			target = 5EFEC5822D76803400B7CC96 /* Lecture0304Ex01 */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		5EFEC19A2D71843A00B7CC96 /* WeekAssign04 */ = {
+		5EFEC5852D76803400B7CC96 /* Lecture0304Ex01 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				5EFEC1AA2D71843C00B7CC96 /* Exceptions for "WeekAssign04" folder in "WeekAssign04" target */,
+				5EFEC5952D76803600B7CC96 /* Exceptions for "Lecture0304Ex01" folder in "Lecture0304Ex01" target */,
 			);
-			path = WeekAssign04;
+			path = Lecture0304Ex01;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5EFEC1952D71843A00B7CC96 /* Frameworks */ = {
+		5EFEC5802D76803400B7CC96 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EFEC5652D75EC1F00B7CC96 /* SnapKit in Frameworks */,
-				5EFEC5BD2D769F3500B7CC96 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5EFEC18F2D71843A00B7CC96 = {
+		5EFEC57A2D76803400B7CC96 = {
 			isa = PBXGroup;
 			children = (
-				5EFEC19A2D71843A00B7CC96 /* WeekAssign04 */,
-				5EFEC1992D71843A00B7CC96 /* Products */,
+				5EFEC5852D76803400B7CC96 /* Lecture0304Ex01 */,
+				5EFEC5842D76803400B7CC96 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5EFEC1992D71843A00B7CC96 /* Products */ = {
+		5EFEC5842D76803400B7CC96 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5EFEC1982D71843A00B7CC96 /* WeekAssign04.app */,
+				5EFEC5832D76803400B7CC96 /* Lecture0304Ex01.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,70 +61,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5EFEC1972D71843A00B7CC96 /* WeekAssign04 */ = {
+		5EFEC5822D76803400B7CC96 /* Lecture0304Ex01 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5EFEC1AB2D71843C00B7CC96 /* Build configuration list for PBXNativeTarget "WeekAssign04" */;
+			buildConfigurationList = 5EFEC5962D76803600B7CC96 /* Build configuration list for PBXNativeTarget "Lecture0304Ex01" */;
 			buildPhases = (
-				5EFEC1942D71843A00B7CC96 /* Sources */,
-				5EFEC1952D71843A00B7CC96 /* Frameworks */,
-				5EFEC1962D71843A00B7CC96 /* Resources */,
+				5EFEC57F2D76803400B7CC96 /* Sources */,
+				5EFEC5802D76803400B7CC96 /* Frameworks */,
+				5EFEC5812D76803400B7CC96 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5EFEC19A2D71843A00B7CC96 /* WeekAssign04 */,
+				5EFEC5852D76803400B7CC96 /* Lecture0304Ex01 */,
 			);
-			name = WeekAssign04;
+			name = Lecture0304Ex01;
 			packageProductDependencies = (
-				5EFEC5642D75EC1F00B7CC96 /* SnapKit */,
-				5EFEC5BC2D769F3500B7CC96 /* Then */,
 			);
-			productName = WeekAssign04;
-			productReference = 5EFEC1982D71843A00B7CC96 /* WeekAssign04.app */;
+			productName = Lecture0304Ex01;
+			productReference = 5EFEC5832D76803400B7CC96 /* Lecture0304Ex01.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5EFEC1902D71843A00B7CC96 /* Project object */ = {
+		5EFEC57B2D76803400B7CC96 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					5EFEC1972D71843A00B7CC96 = {
+					5EFEC5822D76803400B7CC96 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
-			buildConfigurationList = 5EFEC1932D71843A00B7CC96 /* Build configuration list for PBXProject "WeekAssign04" */;
+			buildConfigurationList = 5EFEC57E2D76803400B7CC96 /* Build configuration list for PBXProject "Lecture0304Ex01" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 5EFEC18F2D71843A00B7CC96;
+			mainGroup = 5EFEC57A2D76803400B7CC96;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				5EFEC5632D75EC1F00B7CC96 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				5EFEC5BB2D769F3500B7CC96 /* XCRemoteSwiftPackageReference "Then" */,
-			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 5EFEC1992D71843A00B7CC96 /* Products */;
+			productRefGroup = 5EFEC5842D76803400B7CC96 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5EFEC1972D71843A00B7CC96 /* WeekAssign04 */,
+				5EFEC5822D76803400B7CC96 /* Lecture0304Ex01 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5EFEC1962D71843A00B7CC96 /* Resources */ = {
+		5EFEC5812D76803400B7CC96 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -141,7 +128,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5EFEC1942D71843A00B7CC96 /* Sources */ = {
+		5EFEC57F2D76803400B7CC96 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -151,7 +138,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		5EFEC1AC2D71843C00B7CC96 /* Debug */ = {
+		5EFEC5972D76803600B7CC96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -160,19 +147,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C5K6DF875Z;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeekAssign04/Resources/Info.plist;
+				INFOPLIST_FILE = Lecture0304Ex01/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = assign.WeekAssign04;
+				PRODUCT_BUNDLE_IDENTIFIER = lecture.Lecture0304Ex01;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -180,7 +166,7 @@
 			};
 			name = Debug;
 		};
-		5EFEC1AD2D71843C00B7CC96 /* Release */ = {
+		5EFEC5982D76803600B7CC96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -189,19 +175,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C5K6DF875Z;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeekAssign04/Resources/Info.plist;
+				INFOPLIST_FILE = Lecture0304Ex01/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = assign.WeekAssign04;
+				PRODUCT_BUNDLE_IDENTIFIER = lecture.Lecture0304Ex01;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -209,7 +194,7 @@
 			};
 			name = Release;
 		};
-		5EFEC1AE2D71843C00B7CC96 /* Debug */ = {
+		5EFEC5992D76803600B7CC96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -272,7 +257,7 @@
 			};
 			name = Debug;
 		};
-		5EFEC1AF2D71843C00B7CC96 /* Release */ = {
+		5EFEC59A2D76803600B7CC96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -331,57 +316,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5EFEC1932D71843A00B7CC96 /* Build configuration list for PBXProject "WeekAssign04" */ = {
+		5EFEC57E2D76803400B7CC96 /* Build configuration list for PBXProject "Lecture0304Ex01" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5EFEC1AE2D71843C00B7CC96 /* Debug */,
-				5EFEC1AF2D71843C00B7CC96 /* Release */,
+				5EFEC5992D76803600B7CC96 /* Debug */,
+				5EFEC59A2D76803600B7CC96 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5EFEC1AB2D71843C00B7CC96 /* Build configuration list for PBXNativeTarget "WeekAssign04" */ = {
+		5EFEC5962D76803600B7CC96 /* Build configuration list for PBXNativeTarget "Lecture0304Ex01" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5EFEC1AC2D71843C00B7CC96 /* Debug */,
-				5EFEC1AD2D71843C00B7CC96 /* Release */,
+				5EFEC5972D76803600B7CC96 /* Debug */,
+				5EFEC5982D76803600B7CC96 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		5EFEC5632D75EC1F00B7CC96 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.1;
-			};
-		};
-		5EFEC5BB2D769F3500B7CC96 /* XCRemoteSwiftPackageReference "Then" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/Then";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5EFEC5642D75EC1F00B7CC96 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5EFEC5632D75EC1F00B7CC96 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		5EFEC5BC2D769F3500B7CC96 /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5EFEC5BB2D769F3500B7CC96 /* XCRemoteSwiftPackageReference "Then" */;
-			productName = Then;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 5EFEC1902D71843A00B7CC96 /* Project object */;
+	rootObject = 5EFEC57B2D76803400B7CC96 /* Project object */;
 }

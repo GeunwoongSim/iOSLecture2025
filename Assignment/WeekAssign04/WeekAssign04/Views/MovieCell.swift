@@ -6,25 +6,16 @@
 //
 
 import UIKit
-import SnapKit
 
 class MovieCell: UICollectionViewCell {
   // 포스터 이미지
-  lazy var poster: UIImageView = {
-    let image = UIImageView()
-    return image
-  }()
+  lazy var poster = UIImageView()
   // 영화 제목
-  lazy var title: UILabel = {
-    let lbl = UILabel()
-    lbl.font = UIFont.boldSystemFont(ofSize: 20)
-    return lbl
-  }()
+  lazy var title =  UILabel().then {
+    $0.font = .boldSystemFont(ofSize: 20)
+  }
   // 즐겨찾기 표시
-  lazy var isFavorite: UIImageView = {
-    let image = UIImageView()
-    return image
-  }()
+  lazy var isFavorite = UIImageView()
   
   // MARK: Init
   override init(frame: CGRect) {
