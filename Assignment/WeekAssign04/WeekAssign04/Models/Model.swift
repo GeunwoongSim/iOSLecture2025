@@ -1,4 +1,5 @@
 import Foundation
+import Then
 
 struct Movie: Codable {
   let id: String
@@ -15,4 +16,14 @@ struct Review: Codable {
 //  var username: String
   var comment: String
   var rating: Int
+}
+
+class a: Then {
+  var number1: Int
+  init(number1: Int) {
+    self.number1 = number1
+  }
+}
+struct b: Then {
+  var number1: Int
 }
