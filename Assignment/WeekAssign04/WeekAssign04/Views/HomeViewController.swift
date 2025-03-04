@@ -10,7 +10,6 @@ import SnapKit
 import Then
 
 final class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-  
   private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
     $0.delegate = self
     $0.dataSource = self
@@ -25,7 +24,7 @@ final class HomeViewController: UIViewController, UICollectionViewDelegate, UICo
   )
   // vc에서 사용하는 변수
   private var contentMode: Bool = false
-  private var viewModel: Repository = Repository.share
+  private var dataManager: Repository = Repository.share
   
   // MARK: viewDidLoad
   override func viewDidLoad() {
@@ -63,11 +62,11 @@ final class HomeViewController: UIViewController, UICollectionViewDelegate, UICo
 extension HomeViewController {
   // 셀의 개수
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return contentMode ? viewModel.filterMovies.count : viewModel.movies.count
+    return contentMode ? dataManager.filterMovies.count : dataManager.movies.count
   }
   // 셀 생성
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let data = contentMode ? viewModel.filterMovies[indexPath.row] : viewModel.movies[indexPath.row]
+    let data = contentMode ? dataManager.filterMovies[indexPath.row] : dataManager.movies[indexPath.row]
     let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieCell).then {
       $0.title.text = data.title
       $0.poster.image = UIImage(named: "movie\(data.id)")
@@ -78,8 +77,8 @@ extension HomeViewController {
   // 셀 선택 액션
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let view = DetailContentViewController()
-    view.data = contentMode ? viewModel.filterMovies[indexPath.row] : viewModel.movies[indexPath.row]
-    view.reviewDatas = viewModel.reviews.filter{ $0.movieID == view.data.id }
+    view.data = contentMode ? dataManager.filterMovies[indexPath.row] : dataManager.movies[indexPath.row]
+    view.reviewDatas = dataManager.reviews.filter{ $0.movieID == view.data.id }
     navigationController?.pushViewController(view, animated: true)
   }
 }

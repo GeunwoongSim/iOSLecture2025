@@ -36,7 +36,7 @@ class DetailContentViewController: UIViewController, UITableViewDelegate, UITabl
   }
   
   // vc에서 사용하는 변수
-  private let viewModel: Repository = Repository.share
+  private let dataManager: Repository = Repository.share
   var data: Movie! // 영화 정보
   var reviewDatas: [Review]! // 리뷰 정보
   
@@ -94,7 +94,7 @@ class DetailContentViewController: UIViewController, UITableViewDelegate, UITabl
       if review == "" || rating < 1 || rating > 5 { return }
       // 리뷰 데이터 생성
       let data = Review(movieID: self.data.id, comment: review, rating: rating)
-      self.viewModel.send(.addReview(review: data))
+      self.dataManager.send(.addReview(review: data))
       self.reviewDatas.append(data)
       self.tableView.reloadData()
     }
@@ -107,7 +107,7 @@ class DetailContentViewController: UIViewController, UITableViewDelegate, UITabl
   @objc func favoriteBtnTouch(sender: UIButton) {
     data.isFavorite.toggle()
     favoriteBtn.setImage(UIImage(systemName: data.isFavorite ? "star.fill" : "star"), for: .normal)
-    viewModel.send(.favoriteChange(id: data.id, isFavorite: data.isFavorite))
+    dataManager.send(.favoriteChange(id: data.id, isFavorite: data.isFavorite))
   }
 }
 
