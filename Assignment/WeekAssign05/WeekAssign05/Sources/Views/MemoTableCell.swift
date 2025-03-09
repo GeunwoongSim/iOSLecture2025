@@ -1,44 +1,31 @@
-//
-//  MemoTableCell.swift
-//  WeekAssign05
-//
-//  Created by 심근웅 on 3/8/25.
-//
-
 import Foundation
 import UIKit
 import Then
 import SnapKit
 
 class MemoTableCell: UITableViewCell {
-  // Memo 정보
   var memo: MemoModel? {
     didSet {
-      // 정보를 주입받으면 받은 정보를 베이스로 뷰 업데이트
       configue(memo: memo!)
     }
   }
-  let image = UIImageView().then {
-    $0.layer.cornerRadius = 8.5
-    $0.layer.borderWidth = 1
+  lazy var imgView = UIImageView().then {
+    $0.layer.cornerRadius = Constants.shared.corner
+    $0.backgroundColor = .white
   }
-  let title = UILabel().then {
-    $0.text = "타이틀"
+  lazy var titleLbl = UILabel().then {
     $0.textAlignment = .left
     $0.font = .preferredFont(forTextStyle: .headline)
   }
-  let content = UILabel().then {
-    $0.text = "내용ddddddsddfdfdsafsdfdsfsdafdsda"
+  lazy var contentLbl = UILabel().then {
     $0.textAlignment = .left
     $0.font = .preferredFont(forTextStyle: .body)
   }
-  let date = UILabel().then {
-//    $0.text = "09:22 AM"
-    $0.text = ""
-    $0.numberOfLines = 0
+  lazy var dateLbl = UILabel().then {
     $0.textAlignment = .left
     $0.font = .preferredFont(forTextStyle: .caption1)
   }
+  // MARK: - init
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     uiSetup()
@@ -47,38 +34,41 @@ class MemoTableCell: UITableViewCell {
     fatalError("init(coder:) has not been implemented")
   }
 }
-// MARK: - private Function
+
+// MARK: - Private Functions
 extension MemoTableCell {
+  // 뷰 구성
   private func uiSetup() {
     self.backgroundColor = Constants.shared.backgroundColor
-    [image, title, content, date].forEach { addSubview($0) }
-    image.snp.makeConstraints {
+    [imgView, titleLbl, contentLbl, dateLbl].forEach { addSubview($0) }
+    imgView.snp.makeConstraints {
       $0.leading.top.bottom.equalToSuperview().inset(8)
       $0.width.equalTo(self.snp.height)
     }
-    title.snp.makeConstraints {
-      $0.top.equalTo(image)
-      $0.leading.equalTo(image.snp.trailing).offset(16)
+    titleLbl.snp.makeConstraints {
+      $0.top.equalTo(imgView)
+      $0.leading.equalTo(imgView.snp.trailing).offset(16)
       $0.trailing.equalToSuperview().inset(16)
-      $0.height.equalTo(image.snp.height).dividedBy(3)
+      $0.height.equalTo(imgView.snp.height).dividedBy(3)
     }
-    content.snp.makeConstraints {
-      $0.bottom.equalTo(image)
-      $0.leading.equalTo(image.snp.trailing).offset(16)
+    contentLbl.snp.makeConstraints {
+      $0.bottom.equalTo(imgView)
+      $0.leading.equalTo(imgView.snp.trailing).offset(16)
       $0.trailing.equalToSuperview().inset(16)
-      $0.height.equalTo(image.snp.height).dividedBy(3)
+      $0.height.equalTo(imgView.snp.height).dividedBy(3)
     }
-    date.snp.makeConstraints {
-      $0.top.equalTo(title.snp.bottom)
-      $0.leading.equalTo(image.snp.trailing).offset(16)
+    dateLbl.snp.makeConstraints {
+      $0.top.equalTo(titleLbl.snp.bottom)
+      $0.leading.equalTo(imgView.snp.trailing).offset(16)
       $0.trailing.equalToSuperview().inset(16)
-      $0.height.equalTo(image.snp.height).dividedBy(3)
+      $0.height.equalTo(imgView.snp.height).dividedBy(3)
     }
   }
+  // 값을 주입받으면 뿌려줌
   private func configue(memo: MemoModel) {
-    title.text = memo.title
-    content.text = memo.content
-    date.text = memo.date.dateToDate
-    image.image = UIImage(named: "")
+    titleLbl.text = memo.title
+    contentLbl.text = memo.content
+    dateLbl.text = memo.date.dateToDate
+    imgView.image = memo.image
   }
 }

@@ -10,10 +10,14 @@ import UIKit
 
 final class Constants {
   static var shared: Constants = Constants()
-  
   let tableCellId: String = "MemoTableCell"
   let collectionCellId: String = "MemoCollectionCell"
-  
-  let backgroundColor: UIColor = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 1.0)
+  let corner: CGFloat = 8
+  let backgroundColor: UIColor = UIColor(
+    red: 242/255,
+    green: 242/255,
+    blue: 247/255,
+    alpha: 1.0
+  )
 }
 

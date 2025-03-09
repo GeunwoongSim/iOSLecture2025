@@ -5,6 +5,19 @@ enum MomoContentMode {
   case showTable // 테이블 뷰로 보여줌 (목록형)
   case showCollection // 컬렉션 뷰로 보여줌 (갤러리형)
   
+  var showTableState: Bool {
+    switch self {
+    case .showTable: return false
+    case .showCollection: return true
+    }
+  }
+  var showCollectionState: Bool {
+    switch self {
+    case .showTable: return true
+    case .showCollection: return false
+    }
+  }
+  
   var info: (title: String, image: UIImage) {
     switch self {
     case .showCollection:

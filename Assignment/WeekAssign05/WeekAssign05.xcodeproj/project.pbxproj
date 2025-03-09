@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E09FBBE2D7DA35800AC054F /* Memo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09FBBD2D7DA35800AC054F /* Memo+CoreDataProperties.swift */; };
+		5E09FBBF2D7DA35800AC054F /* Memo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09FBBC2D7DA35800AC054F /* Memo+CoreDataClass.swift */; };
 		5EFEC8AC2D7B47BA00B7CC96 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 5EFEC8AB2D7B47BA00B7CC96 /* Then */; };
 		5EFEC8AF2D7B47CB00B7CC96 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5EFEC8AE2D7B47CB00B7CC96 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E09FBBC2D7DA35800AC054F /* Memo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Memo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5E09FBBD2D7DA35800AC054F /* Memo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Memo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5EFEC88C2D7B470F00B7CC96 /* WeekAssign05.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeekAssign05.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -52,6 +56,8 @@
 		5EFEC8832D7B470F00B7CC96 = {
 			isa = PBXGroup;
 			children = (
+				5E09FBBC2D7DA35800AC054F /* Memo+CoreDataClass.swift */,
+				5E09FBBD2D7DA35800AC054F /* Memo+CoreDataProperties.swift */,
 				5EFEC88E2D7B470F00B7CC96 /* WeekAssign05 */,
 				5EFEC88D2D7B470F00B7CC96 /* Products */,
 			);
@@ -145,6 +151,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E09FBBE2D7DA35800AC054F /* Memo+CoreDataProperties.swift in Sources */,
+				5E09FBBF2D7DA35800AC054F /* Memo+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
