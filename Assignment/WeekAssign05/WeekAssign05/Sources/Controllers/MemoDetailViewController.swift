@@ -16,6 +16,7 @@ class MemoDetailViewController: UIViewController {
     $0.textAlignment = .center
     $0.delegate = self
   }
+  lazy var deleteBtn = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(memoDelete))
   lazy var scrlView = UIScrollView().then {
     $0.showsVerticalScrollIndicator = false
   }
@@ -58,10 +59,18 @@ class MemoDetailViewController: UIViewController {
     super.viewDidLoad()
     uiSetup()
   }
-  // MARK: - viewDidDisappear
-  override func viewDidDisappear(_ animated: Bool) {
-    super.viewDidDisappear(animated)
+  // MARK: - viewWillAppear
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+  }
+  // MARK: - viewWillDisappear
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
     NotificationCenter.default.post(name: NSNotification.Name("DataUpdated"), object: nil)
+    NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+    NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
   }
 }
 // MARK: - Private Functions
@@ -108,6 +117,7 @@ extension MemoDetailViewController {
     naviBarAppear.shadowColor = UIColor.lightGray
     navigationController?.navigationBar.standardAppearance = naviBarAppear
     navigationController?.navigationBar.scrollEdgeAppearance = naviBarAppear
+    navigationItem.rightBarButtonItem = deleteBtn
     // 타이블 레이블
     titleView.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
     navigationItem.titleView = titleView
@@ -143,17 +153,24 @@ extension MemoDetailViewController {
   }
   private func viewModeSet() {
     textView.isEditable = detailMode.isEditable
+    textView.isSelectable = detailMode.isEditable
     titleView.isEnabled = detailMode.isEditable
+    photoButton.isEnabled = detailMode.isEditable
+    deleteBtn.isHidden = false
     switch detailMode {
     case .add:
       editOrDoneButton.title = "완료"
+      titleView.placeholder = "제목 입력"
       titleView.becomeFirstResponder() // 키보드 자동으로 띄우기
+      deleteBtn.isHidden = true
     case .read:
       editOrDoneButton.title = "수정"
+      titleView.placeholder = ""
       textView.resignFirstResponder() // 키보드 내리기
       (memoDate.customView as! UILabel).text = Date().dateToTime
     case .edit:
       editOrDoneButton.title = "완료"
+      titleView.placeholder = "제목 입력"
       textView.becomeFirstResponder() // 키보드 자동으로 띄우기
     }
     memoDate.customView?.sizeToFit()
@@ -169,6 +186,19 @@ extension MemoDetailViewController {
       self.imgView.isHidden = false
     }
     updateViewConstraints()
+  }
+  @objc func memoDelete() {
+    let alert = UIAlertController(title: "메모 삭제", message: "정말로 삭제하시겠습니까?", preferredStyle: .alert)
+    let delete = UIAlertAction(title: "삭제", style: .destructive) {[unowned self] _ in
+      if detailMode == .edit || detailMode == .read {
+        DataManager.shared.send(action: .memoDelete(data: memo!))
+      }
+      self.navigationController?.popViewController(animated: true)
+    }
+    let cancel = UIAlertAction(title: "취소", style: .cancel)
+    alert.addAction(delete)
+    alert.addAction(cancel)
+    self.present(alert, animated: true)
   }
 }
 // MARK: override 메서드
@@ -215,10 +245,39 @@ extension MemoDetailViewController: UIImagePickerControllerDelegate, UINavigatio
     picker.dismiss(animated: true)
   }
 }
-
+// MARK: - UITextFieldDelegate
 extension MemoDetailViewController: UITextFieldDelegate {
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textView.becomeFirstResponder()
     return true
+  }
+}
+
+// MARK: - 키보드가 등장할때, 사라질때 실행 함수
+extension MemoDetailViewController {
+  @objc private func keyboardWillShow(_ notification: Notification) {
+    guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+    let keyboardHeight = keyboardFrame.height
+    let bottomInset = keyboardHeight - view.safeAreaInsets.bottom + (navigationController?.toolbar.frame.height ?? 0)
+    
+    // 스크롤뷰의 contentInset을 키보드 높이만큼 올림
+    scrlView.contentInset.bottom = bottomInset
+    // ✅ 툴바를 키보드 위로 이동 (애니메이션 적용)
+    if let toolbar = navigationController?.toolbar {
+      UIView.animate(withDuration: 0.3) {
+        toolbar.transform = CGAffineTransform(translationX: 0, y: -bottomInset)
+      }
+    }
+  }
+  
+  @objc private func keyboardWillHide(_ notification: Notification) {
+    // 키보드가 사라질 때 원래 상태로 복구
+    scrlView.contentInset.bottom = 0
+    // ✅ 툴바도 원래 위치로 복귀
+    if let toolbar = navigationController?.toolbar {
+      UIView.animate(withDuration: 0.3) {
+        toolbar.transform = .identity
+      }
+    }
   }
 }

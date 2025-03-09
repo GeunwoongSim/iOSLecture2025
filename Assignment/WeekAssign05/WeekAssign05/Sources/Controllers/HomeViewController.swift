@@ -46,6 +46,7 @@ extension HomeViewController {
   @objc func fetchData() {
     loadMemos()
     viewModeUpdate()
+    toolBarSet()
   }
   // 디비에서 받아온 데이터를 memos프로퍼티에 대입
   private func loadMemos() {

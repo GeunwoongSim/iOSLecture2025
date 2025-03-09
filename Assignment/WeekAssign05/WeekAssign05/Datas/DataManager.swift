@@ -28,6 +28,7 @@ class DataManager {
     case memoSave(data: MemoModel)
     case memoLoad
     case memoEdit(data: MemoModel)
+    case memoDelete(data: MemoModel)
   }
   
   func send(action: Action) {
@@ -39,6 +40,8 @@ class DataManager {
       memos = loadData
     case .memoEdit(let data):
       editData(data: data)
+    case .memoDelete(let data):
+      deleteData(data: data)
     }
   }
 }
@@ -99,6 +102,19 @@ extension DataManager {
       object.setValue(data.image?.pngData(), forKey: "image")
       try context.save()
     }catch {
+      print("error: \(error.localizedDescription)")
+    }
+  }
+  private func deleteData(data: MemoModel) {
+    let context: NSManagedObjectContext = container.viewContext
+    let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Memo")
+    fetchRequest.predicate = NSPredicate(format: "uuid == %@", data.uuid.uuidString)
+    do {
+      guard let result = try? context.fetch(fetchRequest),
+            let object = result.first else { return }
+      context.delete(object)
+      try context.save()
+    } catch {
       print("error: \(error.localizedDescription)")
     }
   }
