@@ -9,6 +9,13 @@ class MemoDetailViewController: UIViewController {
   // 읽기모드, 수정모드, 추가모드
   var detailMode: MemoDetailMode = .read
   // MARK: - View
+  lazy var titleView = UITextField().then {
+    $0.placeholder = "제목 입력"
+    $0.text = "메모"
+    $0.font = .boldSystemFont(ofSize: 18)
+    $0.textAlignment = .center
+    $0.delegate = self
+  }
   lazy var scrlView = UIScrollView().then {
     $0.showsVerticalScrollIndicator = false
   }
@@ -101,6 +108,9 @@ extension MemoDetailViewController {
     naviBarAppear.shadowColor = UIColor.lightGray
     navigationController?.navigationBar.standardAppearance = naviBarAppear
     navigationController?.navigationBar.scrollEdgeAppearance = naviBarAppear
+    // 타이블 레이블
+    titleView.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+    navigationItem.titleView = titleView
   }
   // 툴바 세팅
   private func toolBarSetup() {
@@ -117,11 +127,12 @@ extension MemoDetailViewController {
   @objc private func didTapEditOrDoneButton() {
     switch detailMode {
     case .add: // 내용을 저장
-      let memoData = MemoModel(title: UUID().uuidString, content: textView.text, date: Date(), image: imgView.image)
+      let title = titleView.text ?? "메모"
+      let memoData = MemoModel(title: title, content: textView.text, date: Date(), image: imgView.image)
       self.memo = memoData
       DataManager.shared.send(action: .memoSave(data: memoData))
     case .edit: // 내용을 수정
-      let title = self.title ?? "Nil"
+      let title = titleView.text ?? "메모"
       let memoData = MemoModel(uuid: memo!.uuid, title: title, content: textView.text, date: Date(), image: imgView.image)
       DataManager.shared.send(action: .memoEdit(data: memoData))
     case .read: // 수정 모드로 전환
@@ -132,12 +143,16 @@ extension MemoDetailViewController {
   }
   private func viewModeSet() {
     textView.isEditable = detailMode.isEditable
+    titleView.isEnabled = detailMode.isEditable
     switch detailMode {
+    case .add:
+      editOrDoneButton.title = "완료"
+      titleView.becomeFirstResponder() // 키보드 자동으로 띄우기
     case .read:
       editOrDoneButton.title = "수정"
       textView.resignFirstResponder() // 키보드 내리기
       (memoDate.customView as! UILabel).text = Date().dateToTime
-    case .add, .edit:
+    case .edit:
       editOrDoneButton.title = "완료"
       textView.becomeFirstResponder() // 키보드 자동으로 띄우기
     }
@@ -146,7 +161,7 @@ extension MemoDetailViewController {
   }
   // 메모 정보를 주입했으면 뿌려줌
   private func configue() {
-    self.title = memo?.title
+    self.titleView.text = memo?.title
     self.textView.text = memo?.content
     (self.memoDate.customView as! UILabel).text = memo?.date.dateToDate
     self.imgView.image = memo?.image
@@ -198,5 +213,12 @@ extension MemoDetailViewController: UIImagePickerControllerDelegate, UINavigatio
       updateViewConstraints()
     }
     picker.dismiss(animated: true)
+  }
+}
+
+extension MemoDetailViewController: UITextFieldDelegate {
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textView.becomeFirstResponder()
+    return true
   }
 }
