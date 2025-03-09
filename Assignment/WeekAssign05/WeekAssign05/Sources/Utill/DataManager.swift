@@ -10,14 +10,14 @@ import CoreData
 
 class DataManager {
   // Core Data에서 사용할 context 컨테이너
-  lazy var context: NSManagedObjectContext = {
+  lazy var container: NSPersistentContainer = {
     let container = NSPersistentContainer(name: "MemoDatas")
     container.loadPersistentStores{ storeDescription, error in
       if let error = error as NSError? {
         fatalError("Unresolved error \(error), \(error.userInfo)")
       }
     }
-    return container.viewContext
+    return container
   }()
   
   static var shared: DataManager = DataManager()
@@ -33,7 +33,8 @@ class DataManager {
     case .memoSave(let data):
       saveData(data: data)
     case .memoLoad:
-      loadData()
+      let loadData = loadData()
+      memos = loadData
     }
   }
 }
@@ -41,6 +42,7 @@ class DataManager {
 extension DataManager {
   // Memo Save
   private func saveData(data: MemoModel) {
+    let context = container.viewContext
     let memo = NSEntityDescription.insertNewObject(forEntityName: "Memo", into: context)
     memo.setValue(data.uuid, forKey: "uuid")
     memo.setValue(data.title, forKey: "title")
@@ -53,10 +55,10 @@ extension DataManager {
       print("❌ 데이터 저장 실패: \(error)")
     }
   }
-  
   // Memo Load
-  private func loadData() {
+  private func loadData() -> [MemoModel] {
     var result: [MemoModel] = []
+    let context: NSManagedObjectContext = container.viewContext
     let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Memo")
     do {
       let datas = try context.fetch(fetchRequest)
@@ -65,12 +67,11 @@ extension DataManager {
         let title = data.value(forKey: "title") as! String
         let content = data.value(forKey: "content") as! String
         let date = data.value(forKey: "date") as! Date
-//        print("제목: \(title), 내용: \(content), 날짜: \(date)")
         result.append(MemoModel(uuid: uuid, title: title, content: content, date: date))
       }
     }catch {
       print("❌ 데이터 로드 실패: \(error)")
     }
-    memos = result
+    return result
   }
 }

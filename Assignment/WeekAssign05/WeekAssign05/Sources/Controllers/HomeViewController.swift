@@ -46,7 +46,6 @@ class HomeViewController: UIViewController {
     toolBarSetup()
   }
 }
-
 // MARK: - private Function
 extension HomeViewController {
   // Memos Data Load
@@ -89,6 +88,9 @@ extension HomeViewController {
       UIMenu(options: .displayInline, children: [
         UIAction(title: "메모 추가하기", image: UIImage(systemName: "square.and.pencil")) { _ in
           print("메모 추가하기")
+          let view = MemoDetailViewController()
+          view.addModeSet()
+          self.navigationController?.pushViewController(view, animated: true)
         }
       ])
     ])
@@ -137,7 +139,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 // MARK: - UICollectionView Settings
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return self.memos.count
   }
@@ -146,6 +148,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     cell.memo = memos[indexPath.row]
     return cell
   }
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let view = MemoDetailViewController()
+    view.memo = self.memos[indexPath.row]
+    navigationController?.pushViewController(view, animated: true)
+  }
+}
+// MARK: - UICollectionView DelegateFlowLayout
+extension HomeViewController: UICollectionViewDelegateFlowLayout{
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let length: CGFloat = (collectionView.frame.width-32) / 3
     return CGSize(width: length, height: length*1.5)
@@ -160,7 +170,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     return 16
   }
 }
-
 // MARK: - data Manager
 extension HomeViewController {
   private func testDataSet() {

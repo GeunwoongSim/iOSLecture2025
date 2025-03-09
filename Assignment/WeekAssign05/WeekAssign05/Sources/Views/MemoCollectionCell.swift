@@ -44,8 +44,6 @@ class MemoCollectionCell: UICollectionViewCell {
 
 extension MemoCollectionCell {
   private func uiSetup() {
-//    self.backgroundColor = .systemBlue
-//    self.backgroundColor = Constants.shared.backgroundColor
     [image, title, date].forEach { addSubview($0) }
     image.snp.makeConstraints {
       $0.top.leading.trailing.equalToSuperview()
@@ -64,7 +62,7 @@ extension MemoCollectionCell {
   }
   private func configue(memo: MemoModel) {
     title.text = memo.title
-    date.text = "\(memo.date)"
+    date.text = memo.date.dateToDate
     image.image = UIImage(named: "")
   }
 }

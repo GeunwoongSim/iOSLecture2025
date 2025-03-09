@@ -34,7 +34,7 @@ class MemoTableCell: UITableViewCell {
   }
   let date = UILabel().then {
 //    $0.text = "09:22 AM"
-    $0.text = "2025년 12월 31일 (토)"
+    $0.text = ""
     $0.numberOfLines = 0
     $0.textAlignment = .left
     $0.font = .preferredFont(forTextStyle: .caption1)
@@ -78,7 +78,7 @@ extension MemoTableCell {
   private func configue(memo: MemoModel) {
     title.text = memo.title
     content.text = memo.content
-    date.text = "\(memo.date)"
+    date.text = memo.date.dateToDate
     image.image = UIImage(named: "")
   }
 }
