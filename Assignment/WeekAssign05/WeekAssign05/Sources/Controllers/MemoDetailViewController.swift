@@ -167,7 +167,7 @@ extension MemoDetailViewController {
       editOrDoneButton.title = "수정"
       titleView.placeholder = ""
       textView.resignFirstResponder() // 키보드 내리기
-      (memoDate.customView as! UILabel).text = Date().dateToTime
+      (memoDate.customView as! UILabel).text = memo?.date .dateToTime
     case .edit:
       editOrDoneButton.title = "완료"
       titleView.placeholder = "제목 입력"
