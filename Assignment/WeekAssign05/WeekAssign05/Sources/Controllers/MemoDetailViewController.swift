@@ -262,7 +262,7 @@ extension MemoDetailViewController {
     
     // 스크롤뷰의 contentInset을 키보드 높이만큼 올림
     scrlView.contentInset.bottom = bottomInset
-    // ✅ 툴바를 키보드 위로 이동 (애니메이션 적용)
+    // 툴바를 키보드 위로 이동 (애니메이션 적용)
     if let toolbar = navigationController?.toolbar {
       UIView.animate(withDuration: 0.3) {
         toolbar.transform = CGAffineTransform(translationX: 0, y: -bottomInset)
@@ -273,7 +273,7 @@ extension MemoDetailViewController {
   @objc private func keyboardWillHide(_ notification: Notification) {
     // 키보드가 사라질 때 원래 상태로 복구
     scrlView.contentInset.bottom = 0
-    // ✅ 툴바도 원래 위치로 복귀
+    // 툴바도 원래 위치로 복귀
     if let toolbar = navigationController?.toolbar {
       UIView.animate(withDuration: 0.3) {
         toolbar.transform = .identity
