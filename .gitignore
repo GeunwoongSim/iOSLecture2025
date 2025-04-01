@@ -154,3 +154,4 @@ Project/
 # End of https://www.toptal.com/developers/gitignore/api/macos,swift,xcode
 
 *.plist
+Lecture/Firebase/Lecture0401Ex01/Lecture0401Ex01/GoogleService-Info.plist
