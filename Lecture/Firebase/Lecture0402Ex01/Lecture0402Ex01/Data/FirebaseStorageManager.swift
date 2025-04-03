@@ -42,4 +42,25 @@ class FirebaseStorageManager {
             print($0)
         }
     }
+    // Firebase Storage에서 이미지 삭제
+    func deleteImage(imageUrl: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        // 이미지 경로 추출
+        let filePath = imageUrl.components(separatedBy: "/o/").last?.components(separatedBy: "?").first?.removingPercentEncoding
+        
+        guard let path = filePath else {
+            completion(.failure(NSError(domain: "FirebaseStorage", code: -1, userInfo: [NSLocalizedDescriptionKey: "잘못된 파일 경로"])))
+            return
+        }
+        
+        let imageRef = storageRef.child(path)
+        
+        // Firebase Storage에서 이미지 삭제
+        imageRef.delete { error in
+            if let error = error {
+                completion(.failure(error)) // 삭제 실패
+            } else {
+                completion(.success(())) // 삭제 성공
+            }
+        }
+    }
 }

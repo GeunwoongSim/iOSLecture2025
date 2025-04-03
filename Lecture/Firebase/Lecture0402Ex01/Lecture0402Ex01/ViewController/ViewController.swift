@@ -9,6 +9,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // 사용자가 이미지를 선택할 수 있는 버튼 생성
     private let selectButton = UIButton(type: .system)
     
+    // 사용자가 이미지를 삭제할 수 있는 버튼 생성
+    private let deleteButton = UIButton(type: .system)
+    
+    // 현재 업로드된 이미지의 URL 저장
+    private var uploadedImageUrl: String?
+    
     // 이미지 업로드 버튼
     private lazy var uploadButton: UIButton = {
         let button = UIButton(type: .system)
@@ -43,6 +49,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         selectButton.translatesAutoresizingMaskIntoConstraints = false // Auto Layout 활성화
         view.addSubview(selectButton) // 버튼을 화면에 추가
         
+        // 추가: 이미지 삭제 버튼 설정
+        deleteButton.setTitle("이미지 삭제", for: .normal)
+        deleteButton.addTarget(self, action: #selector(deleteImage), for: .touchUpInside)
+        deleteButton.translatesAutoresizingMaskIntoConstraints = false
+        deleteButton.isHidden = true // 초기에 숨김
+        view.addSubview(deleteButton)
+        
         // Auto Layout 제약 조건 설정
         NSLayoutConstraint.activate([
             // 이미지 뷰를 수평 가운데 정렬
@@ -59,12 +72,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             // 버튼을 이미지 뷰 아래 20pt에 위치
             selectButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20)
         ])
-        view.addSubview(uploadButton)
+//        view.addSubview(uploadButton)
         
         NSLayoutConstraint.activate([
-            uploadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            uploadButton.topAnchor.constraint(equalTo: selectButton.bottomAnchor, constant: 20)
-            ])
+//            uploadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            uploadButton.topAnchor.constraint(equalTo: selectButton.bottomAnchor, constant: 20),
+            
+            deleteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            deleteButton.topAnchor.constraint(equalTo: selectButton.bottomAnchor, constant: 20)
+        ])
     }
     
     // 사용자가 "이미지 선택" 버튼을 클릭하면 실행되는 함수
@@ -80,14 +96,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(picker, animated: true, completion: nil)
     }
     
-    // 사용자가 이미지를 선택하면 실행되는 델리게이트 메서드
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        // 선택한 이미지가 존재하면
         if let selectedImage = info[.originalImage] as? UIImage {
-            // 이미지 뷰에 선택한 이미지 설정
             imageView.image = selectedImage
+            
+            // Firebase Storage에 이미지 업로드
+            FirebaseStorageManager.shared.uploadImage(selectedImage) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let url):
+                        self.uploadedImageUrl = url
+                        self.deleteButton.isHidden = false // 삭제 버튼 표시
+                        self.uploadButton.isHidden = true
+                        print("업로드 성공: \(url)")
+                    case .failure(let error):
+                        print("업로드 실패: \(error.localizedDescription)")
+                    }
+                }
+            }
         }
-        // 이미지 선택 창 닫기
         dismiss(animated: true, completion: nil)
     }
     
@@ -98,12 +125,40 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @objc private func uploadImage() {
         guard let image = imageView.image else { return }
         
-        FirebaseStorageManager.shared.uploadImage(image) { result in
+        FirebaseStorageManager.shared.uploadImage(image) {
+            [weak self] result in
+            
+            guard let self = self else { return }
             switch result {
             case .success(let url):
                 print("이미지 업로드 성공: \(url)")
             case .failure(let error):
                 print("이미지 업로드 실패: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    // 이미지 삭제 버튼 클릭 시 실행되는 함수
+    @objc private func deleteImage() {
+        guard let imageUrl = uploadedImageUrl else {
+            print("삭제할 이미지가 없습니다.")
+            return
+        }
+        
+        // Firebase Storage에서 이미지 삭제
+        FirebaseStorageManager.shared.deleteImage(imageUrl: imageUrl) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    self.imageView.image = nil // 이미지 뷰에서 제거
+                    self.uploadedImageUrl = nil // 이미지 URL 초기화
+                    self.deleteButton.isHidden = true // 삭제 버튼 숨김
+                    // self.uploadButton.isHidden = false
+                    self.selectButton.isHidden = false // 이미지 선택 버튼 다시 보이기
+                    print("이미지 삭제 성공")
+                case .failure(let error):
+                    print("이미지 삭제 실패: \(error.localizedDescription)")
+                }
             }
         }
     }
