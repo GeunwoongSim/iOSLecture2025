@@ -25,6 +25,7 @@
 - [3주차](Lecture/Practice/ReflectionSystem/ReflectionSystem)
 - [4주차](Assignment/WeekAssign04)
 - [5주차](Assignment/WeekAssign05)
+- [6주차](Assignment/WeekAssign06/FeedApp/)
 
 
 # create a new repository on the command line
